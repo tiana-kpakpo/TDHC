@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Home | The Divine Healer's Church</title>
+ <title>Ministries | The Divine Healer's Church</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+  <style>
+    :root {
+      /* Primary Colors */
+      --primary: #6941C6;
+      --primary-light: #9E77ED;
+      --primary-dark: #53389E;
+      --primary-50: #F4F0FF;
+      --primary-100: #EBE4FF;
+      
+      /* Secondary Colors */
+      --secondary: #FF6B3D;
+      --secondary-light: #FF8B66;
+      --secondary-dark: #E54A26;
+      
+      /* Neutral Colors */
+      --dark: #1D2939;
+      --gray-900: #101828;
+      --gray-800: #1D2939;
+      --gray-700: #344054;
+      --gray-600: #475467;
+      --gray-500: #667085;
+      --gray-400: #98A2B3;
+      --gray-300: #D0D5DD;
+      --gray-200: #EAECF0;
+      --gray-100: #F2F4F7;
+      --gray-50: #F9FAFB;
+      --white: #FFFFFF;
+      
+      /* Shadows */
+      --shadow-sm: 0px 1px 2px rgba(16, 24, 40, 0.05);
+      --shadow-md: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
+      --shadow-lg: 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03);
+      --shadow-xl: 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+      
+      /* Border Radius */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-2xl: 24px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--gray-800);
+      background-color: var(--gray-50);
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Animation Keyframes */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Header & Navigation */
+    .header {
+      background-color: transparent;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+
+    .header.scrolled {
+      background-color: var(--white);
+      box-shadow: var(--shadow-md);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      height: 40px;
+      width: auto;
+    }
+
+    .brand-divider {
+      height: 24px;
+      width: 1px;
+      background-color: var(--gray-300);
+    }
+
+    .brand-text {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--white);
+      transition: color 0.3s ease;
+    }
+
+    .header.scrolled .brand-text {
+      color: var(--gray-800);
+    }
+
+    .brand-branch {
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--primary-light);
+      margin-left: 4px;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--white);
+      padding: 8px 12px;
+      border-radius: var(--radius-md);
+      transition: all 0.2s ease;
+    }
+
+    .header.scrolled .nav-link {
+      color: var(--gray-600);
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary-light);
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .header.scrolled .nav-link:hover, 
+    .header.scrolled .nav-link.active {
+      color: var(--primary);
+      background-color: var(--primary-50);
+    }
+
+    .nav-link.active {
+      font-weight: 600;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 24px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .header.scrolled .mobile-toggle {
+      color: var(--gray-700);
+    }
+
+    /* Hero Section with Image */
+    .hero-ministries {
+      position: relative;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: var(--white);
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(53, 38, 94, 0.8) 0%, rgba(29, 41, 57, 0.9) 100%);
+      z-index: -1;
+    }
+
+      .hero-content {
+            max-width: 700px;
+            color: var(--white);
+            animation: fadeUp 1s ease-out;
+        }
+
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      margin-bottom: 24px;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .hero-badge i {
+      color: var(--secondary);
+    }
+
+    .hero-title {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .hero-description {
+      font-size: 18px;
+      margin-bottom: 32px;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Ministry Categories */
+    .ministry-categories {
+      background-color: var(--white);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      padding: 24px;
+      margin-top: -50px;
+      position: relative;
+      z-index: 10;
+      margin-bottom: 48px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .category-btn {
+      background-color: var(--gray-100);
+      color: var(--gray-700);
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .category-btn:hover {
+      background-color: var(--primary-50);
+      color: var(--primary);
+    }
+
+    .category-btn.active {
+      background-color: var(--primary);
+      color: var(--white);
+    }
+
+    .category-btn i {
+      font-size: 16px;
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-badge {
+      display: inline-block;
+      background-color: var(--primary-50);
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      color: var(--gray-600);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Ministries Grid */
+    .ministries-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+    }
+
+    .ministry-card {
+      background-color: var(--white);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      animation: fadeUp 0.5s ease-out forwards;
+    }
+
+    .ministry-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .ministry-card-img-wrapper {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .ministry-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .ministry-card:hover .ministry-card-img {
+      transform: scale(1.05);
+    }
+
+    .ministry-card-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    .ministry-card-icon {
+      width: 64px;
+      height: 64px;
+      background-color: var(--primary-50);
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: -32px auto 16px;
+      font-size: 24px;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+    }
+
+    .ministry-card:hover .ministry-card-icon {
+      background-color: var(--primary);
+      color: var(--white);
+      transform: rotateY(180deg);
+    }
+
+    .ministry-card-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .ministry-card-desc {
+      font-size: 15px;
+      color: var(--gray-600);
+      margin-bottom: 24px;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .ministry-card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      margin-top: auto;
+      justify-content: center;
+    }
+
+    .ministry-card-btn:hover {
+      color: var(--primary-dark);
+      transform: translateX(4px);
+    }
+
+    /* Call to Action */
+    .cta-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      margin-top: 80px;
+    }
+
+    .cta-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+      background-size: 20px 20px;
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .cta-container {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .cta-title {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .cta-desc {
+      font-size: 18px;
+      opacity: 0.9;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--white);
+      color: var(--primary);
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: var(--radius-lg);
+      transition: all 0.2s ease;
+    }
+
+    .cta-btn-primary:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .cta-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.2s ease;
+    }
+
+    .cta-btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+      padding: 80px 0;
+      background-color: var(--white);
+    }
+
+    .testimonials-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .testimonial-card {
+      background-color: var(--gray-50);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .testimonial-quote {
+      font-size: 18px;
+      color: var(--gray-700);
+      margin-bottom: 24px;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    .testimonial-quote::before {
+      content: '"';
+      font-size: 64px;
+      color: var(--primary-100);
+      position: absolute;
+      top: -20px;
+      left: -10px;
+      opacity: 0.5;
+      font-family: serif;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .testimonial-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      color: var(--gray-900);
+    }
+
+    .testimonial-role {
+      font-size: 14px;
+      color: var(--gray-600);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--gray-900);
+      color: var(--white);
+      padding: 80px 0 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 64px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-logo img {
+      height: 40px;
+    }
+
+    .footer-logo-text {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--white);
+    }
+
+    .footer-description {
+      color: var(--gray-400);
+      max-width: 320px;
+      font-style: italic;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .social-link:hover {
+      background-color: var(--primary);
+      transform: translateY(-4px);
+    }
+
+    .footer-links-title {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 24px;
+      color: var(--white);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-link {
+      color: var(--gray-400);
+      transition: all 0.2s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--white);
+      transform: translateX(4px);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--gray-400);
+      font-size: 14px;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 320px;
+      height: 100vh;
+      background-color: var(--white);
+      z-index: 1000;
+      padding: 24px;
+      transition: right 0.3s ease;
+      box-shadow: var(--shadow-xl);
+      overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .mobile-close {
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--gray-700);
+      cursor: pointer;
+    }
+
+    .mobile-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mobile-nav-link {
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      font-weight: 500;
+      color: var(--gray-700);
+      transition: all 0.2s ease;
+    }
+
+    .mobile-nav-link:hover, .mobile-nav-link.active {
+      background-color: var(--gray-100);
+      color: var(--primary);
+    }
+
+    .mobile-nav-link.active {
+      font-weight: 600;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Animation Delays for Cards */
+    .ministry-card:nth-child(1) { animation-delay: 0.1s; }
+    .ministry-card:nth-child(2) { animation-delay: 0.2s; }
+    .ministry-card:nth-child(3) { animation-delay: 0.3s; }
+    .ministry-card:nth-child(4) { animation-delay: 0.4s; }
+    .ministry-card:nth-child(5) { animation-delay: 0.5s; }
+    .ministry-card:nth-child(6) { animation-delay: 0.6s; }
+    .ministry-card:nth-child(7) { animation-delay: 0.7s; }
+    .ministry-card:nth-child(8) { animation-delay: 0.8s; }
+    .ministry-card:nth-child(9) { animation-delay: 0.9s; }
+    .ministry-card:nth-child(10) { animation-delay: 1.0s; }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .hero-title {
+        font-size: 40px;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+      
+      .mobile-toggle {
+        display: block;
+      }
+      
+      .hero-ministries {
+        height: 500px;
+      }
+      
+      .hero-title {
+        font-size: 32px;
+      }
+      
+      .hero-description {
+        font-size: 16px;
+      }
+      
+      .section-title {
+        font-size: 28px;
+      }
+      
+      .ministry-categories {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-ministries {
+        height: 450px;
+        text-align: center;
+      }
+      
+      .hero-badge {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .hero-title {
+        font-size: 28px;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+      
+      .footer-bottom-links {
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+  </style>
+    
+</head>
+<body>
+
+   <header class="header" id="header">
+    <div class="container">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <img src="TDHC-removebg.png" alt="The Divine Healer's Church Logo" class="logo">
+          <div class="brand-divider"></div>
+          <div>
+            <span class="brand-text">The Divine Healer's Church</span>
+            <span class="brand-branch">NJ Branch</span>
+          </div>
+        </div>
+        
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="ministries.html" class="nav-link active">Ministries</a></li>
+          <li><a href="sermon.html" class="nav-link">Sermons</a></li>
+          <li><a href="event.html" class="nav-link">Events</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        
+        <button class="mobile-toggle" aria-label="Toggle mobile menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="overlay" id="overlay"></div>
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <img src="TDHC-removebg.png" alt="The Divine Healer's Church Logo" class="logo" style="height: 32px;">
+      <button class="mobile-close" aria-label="Close mobile menu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="mobile-nav">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="ministries.html" class="mobile-nav-link active">Ministries</a>
+      <a href="sermon.html" class="mobile-nav-link">Sermons</a>
+      <a href="event.html" class="mobile-nav-link">Events</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+  </div>
+
+  <!-- Hero Section with Image -->
+  <section class="hero-ministries">
+    <img src="/images/IMG-20250214-WA0004.jpg" alt="Church Community" class="hero-bg">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-hands-helping"></i>
+        <span>Serve & Connect</span>
+      </div>
+      <h1 class="hero-title">Our Ministries</h1>
+      <p class="hero-description">Find your place to grow, serve, and connect. Explore the ministries that make our church family vibrant and welcoming.</p>
+    </div>
+  </section>
+
+  <!-- Ministry Categories -->
+  <div class="container">
+    <div class="ministry-categories">
+      <button class="category-btn active">
+        <i class="fas fa-th-large"></i>
+        All Ministries
+      </button>
+      <button class="category-btn">
+        <i class="fas fa-users"></i>
+        Community
+      </button>
+      <button class="category-btn">
+        <i class="fas fa-pray"></i>
+        Worship
+      </button>
+      <button class="category-btn">
+        <i class="fas fa-child"></i>
+        Children & Youth
+      </button>
+      <button class="category-btn">
+        <i class="fas fa-hands-helping"></i>
+        Outreach
+      </button>
+    </div>
+  </div>
+
+  <!-- Ministries Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">FIND YOUR PLACE</div>
+        <h2 class="section-title">Ministries at The Divine Healer's Church</h2>
+        <p class="section-subtitle">Discover opportunities to serve, grow, and connect with others in our church family</p>
+      </div>
+      
+      <div class="ministries-grid">
+        <!-- Ministry Card 1 -->
+        <div class="ministry-card">
+          <div class="ministry-card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Women's Ministry" class="ministry-card-img">
+          </div>
+          <div class="ministry-card-content">
+            <div class="ministry-card-icon">
+              <i class="fas fa-female"></i>
+            </div>
+            <h3 class="ministry-card-title">Women's Ministry</h3>
+            <p class="ministry-card-desc">Empowering women to grow in faith, fellowship, and service through events, studies, and support.</p>
+            <a href="#" class="ministry-card-btn">
+              Learn More
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Ministry Card 2 -->
+        <div class="ministry-card">
+          <div class="ministry-card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Men's Ministry" class="ministry-card-img">
+          </div>
+          <div class="ministry-card-content">
+            <div class="ministry-card-icon">
+              <i class="fas fa-male"></i>
+            </div>
+            <h3 class="ministry-card-title">Men's Ministry</h3>
+            <p class="ministry-card-desc">Building strong men of faith through discipleship, mentorship, and community outreach.</p>
+            <a href="#" class="ministry-card-btn">
+              Learn More
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Ministry Card 3 -->
+        <div class="ministry-card">
+          <div class="ministry-card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Children's Ministry" class="ministry-card-img">
+          </div>
+          <div class="ministry-card-content">
+            <div class="ministry-card-icon">
+              <i class="fas fa-child"></i>
+            </div>
+            <h3 class="ministry-card-title">Children's Ministry</h3>
+            <p class="ministry-card-desc">Engaging children with fun, faith-filled activities and teaching them about God's love.</p>
+            <a href="#" class="ministry-card-btn">
+              Learn More
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Ministry Card 4 -->
+        <div class="ministry-card">
+          <div class="ministry-card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3fd8?auto=format&fit=crop&w=600&q=80" alt="Youth" class="ministry-card-img">
+          </div>
+          <div class="ministry-card-content">
+            <div class="ministry-card-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3 class="ministry-card-title">Youth</h3>
+            <p class="ministry-card-desc">Inspiring and equipping the next generation to live out their faith boldly and authentically.</p>
+            <a href="#" class="ministry-card-btn">
+              Learn More
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Ministry Card 5 -->
+        <div class="ministry-card">
+          <div class="ministry-card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Ushering" class="ministry-card-img">
+          </div>
+          <div class="ministry-card-content">
+            <div class="ministry-card-icon">
+              <i class="fas fa-door-open"></i>
+            </div>
+            <h3 class="ministry-card-title">Ushering</h3>
+            <p class="ministry-card-desc">Creating a welcoming environment and assisting with the smooth flow of our services.</p>
+            <a href="#" class="ministry-card-btn">
+              Learn More
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Ministry Card 6 -->
+        <div class="ministry-card">
+          <div class="ministry-card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Cell Meeting / Bible Studies" class="ministry-card-img">
+          </div>
+          <div class="ministry-card-content">
+            <div class="ministry-card-icon">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <h3 class="ministry-card-title">Cell Meeting / Bible Studies</h3>
+            <p class="ministry-card-desc">Deepening faith and friendships through small group Bible studies and prayer meetings.</p>
+            <a href="#" class="ministry-card-btn">
+              Learn More
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Ministry Card 7 -->
+        <div class="ministry-card">
+          <div class="ministry-card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Media" class="ministry-card-img">
+          </div>
+          <div class="ministry-card-content">
+            <div class="ministry-card-icon">
+              <i class="fas fa-camera"></i>
+            </div>
+            <h3 class="ministry-card-title">Media</h3>
+            <p class="ministry-card-desc">Supporting our church's mission through creative media, technology, and communications.</p>
+            <a href="#" class="ministry-card-btn">
+              Learn More
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Ministry Card 8 -->
+        <div class="ministry-card">
+          <div class="ministry-card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3fd8?auto=format&fit=crop&w=600&q=80" alt="Choir" class="ministry-card-img">
+          </div>
+          <div class="ministry-card-content">
+            <div class="ministry-card-icon">
+              <i class="fas fa-music"></i>
+            </div>
+            <h3 class="ministry-card-title">Choir</h3>
+            <p class="ministry-card-desc">Leading worship and inspiring the congregation through music and song.</p>
+            <a href="#" class="ministry-card-btn">
+              Learn More
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Ministry Card 9 -->
+        <div class="ministry-card">
+          <div class="ministry-card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Outreach" class="ministry-card-img">
+          </div>
+          <div class="ministry-card-content">
+            <div class="ministry-card-icon">
+              <i class="fas fa-hands-helping"></i>
+            </div>
+            <h3 class="ministry-card-title">Outreach</h3>
+            <p class="ministry-card-desc">Serving our community and sharing God's love through acts of kindness and service.</p>
+            <a href="#" class="ministry-card-btn">
+              Learn More
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Ministry Card 10 -->
+        <div class="ministry-card">
+          <div class="ministry-card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Intercessory" class="ministry-card-img">
+          </div>
+          <div class="ministry-card-content">
+            <div class="ministry-card-icon">
+              <i class="fas fa-pray"></i>
+            </div>
+            <h3 class="ministry-card-title">Intercessory</h3>
+            <p class="ministry-card-desc">Standing in the gap through prayer, interceding for our church, community, and world.</p>
+            <a href="#" class="ministry-card-btn">
+              Learn More
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="testimonials-container">
+      <div class="section-header">
+        <div class="section-badge">TESTIMONIALS</div>
+        <h2 class="section-title">Lives Changed Through Ministry</h2>
+        <p class="section-subtitle">Hear from those who have found community and purpose through our ministries</p>
+      </div>
+      
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <p class="testimonial-quote">Joining the Women's Ministry has been transformative for me. I've found a supportive community of sisters in Christ who encourage me in my faith journey.</p>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <div class="testimonial-name">Sarah Johnson</div>
+              <div class="testimonial-role">Women's Ministry</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <p class="testimonial-quote">The Youth Ministry has given my teenagers a place to belong and grow in their faith. The mentors are incredible role models who truly care.</p>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Thompson" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <div class="testimonial-name">Michael Thompson</div>
+              <div class="testimonial-role">Parent</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <p class="testimonial-quote">Serving in the Outreach Ministry has opened my eyes to the needs in our community and given me the opportunity to be the hands and feet of Jesus.</p>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Rebecca Martinez" class="testimonial-avatar">
+            <div class="testimonial-info">
+              <div class="testimonial-name">Rebecca Martinez</div>
+              <div class="testimonial-role">Outreach Volunteer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-section">
+    <div class="cta-pattern"></div>
+    <div class="cta-container">
+      <h2 class="cta-title">Ready to Get Involved?</h2>
+      <p class="cta-desc">Whether you're looking to serve, grow, or connect, there's a place for you in our church family. Take the next step today!</p>
+      <div class="cta-buttons">
+        <a href="#" class="cta-btn-primary">
+          <i class="fas fa-user-plus"></i>
+          Join a Ministry
+        </a>
+        <a href="#" class="cta-btn-secondary">
+          <i class="fas fa-question-circle"></i>
+          Learn More
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+ <footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- About Column -->
+        <div class="footer-column">
+          <div class="footer-logo">
+            <img src="https://placehold.co/100x100/f85c37/ffffff?text=LOGO" alt="Church Logo" class="footer-logo-img">
+            <h3 class="footer-logo-text">Church Name</h3>
+          </div>
+          <p class="footer-about-text">
+            A welcoming community of faith, hope, and love. We are dedicated to serving our community and spreading God's message of love and compassion.
+          </p>
+          <div class="footer-social">
+            <a href="#" class="social-icon-footer" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon-footer" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon-footer" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon-footer" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Sermons</a></li>
+            <li><a href="#">Ministries</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Service Times Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Service Times</h3>
+          <ul class="footer-service-times">
+            <li>
+              <span class="service-day">Sunday:</span>
+              <span class="service-time">10:00 AM - 12:00 PM</span>
+            </li>
+            <li>
+              <span class="service-day">Wednesday:</span>
+              <span class="service-time">7:00 PM - 8:30 PM</span>
+            </li>
+            <li>
+              <span class="service-day">Friday:</span>
+              <span class="service-time">7:00 PM - 9:00 PM (Youth)</span>
+            </li>
+          </ul>
+          <div class="footer-contact-info">
+            <h3 class="footer-heading">Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Faith Street, City, State 12345</p>
+            <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+            <p><i class="fas fa-envelope"></i> info@churchname.org</p>
+          </div>
+        </div>
+
+        <!-- Newsletter Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Stay Connected</h3>
+          <p class="newsletter-text">Subscribe to our newsletter to receive updates on events, sermons, and community outreach.</p>
+          <form class="newsletter-form">
+            <div class="form-group">
+              <input type="text" class="newsletter-input" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+              <input type="email" class="newsletter-input" placeholder="Your Email">
+            </div>
+            <button type="submit" class="newsletter-button">
+              Subscribe <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="copyright">© 2025 The Divine Healer's Church. All Rights Reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile Menu Toggle
+      const mobileToggle = document.querySelector('.mobile-toggle');
+      const mobileClose = document.querySelector('.mobile-close');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const overlay = document.getElementById('overlay');
+      
+      // Check if elements exist to prevent errors
+      if (mobileToggle && mobileClose && mobileMenu && overlay) {
+        // Add click event listener to mobile toggle button
+        mobileToggle.addEventListener('click', function() {
+          console.log('Mobile toggle clicked'); // For debugging
+          mobileMenu.classList.add('active');
+          overlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+        
+        // Add click event listener to close button
+        mobileClose.addEventListener('click', function() {
+          console.log('Mobile close clicked'); // For debugging
+          mobileMenu.classList.remove('active');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+        
+        // Add click event listener to overlay
+        overlay.addEventListener('click', function() {
+          console.log('Overlay clicked'); // For debugging
+          mobileMenu.classList.remove('active');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      }
+      
+      // Header Scroll Effect
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+      
+      // Category Buttons
+      const categoryBtns = document.querySelectorAll('.category-btn');
+      
+      categoryBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          // Remove active class from all buttons
+          categoryBtns.forEach(b => b.classList.remove('active'));
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // In a real implementation, you would filter ministries here
+          // based on the selected category
+        });
+      });
+      
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            window.scrollTo({
+              top: target.offsetTop - 100,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
+
+      <script src="script.js"></script>
+
+  
+</body>
+</html>

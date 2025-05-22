@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Events | The Divine Healer's Church</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <style>
+    :root {
+      /* Primary Colors */
+      --primary: #6941C6;
+      --primary-light: #9E77ED;
+      --primary-dark: #53389E;
+      --primary-50: #F4F0FF;
+      --primary-100: #EBE4FF;
+      
+      /* Secondary Colors */
+      --secondary: #FF6B3D;
+      --secondary-light: #FF8B66;
+      --secondary-dark: #E54A26;
+      
+      /* Neutral Colors */
+      --dark: #1D2939;
+      --gray-900: #101828;
+      --gray-800: #1D2939;
+      --gray-700: #344054;
+      --gray-600: #475467;
+      --gray-500: #667085;
+      --gray-400: #98A2B3;
+      --gray-300: #D0D5DD;
+      --gray-200: #EAECF0;
+      --gray-100: #F2F4F7;
+      --gray-50: #F9FAFB;
+      --white: #FFFFFF;
+      
+      /* Shadows */
+      --shadow-sm: 0px 1px 2px rgba(16, 24, 40, 0.05);
+      --shadow-md: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
+      --shadow-lg: 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03);
+      --shadow-xl: 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+      
+      /* Border Radius */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-2xl: 24px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--gray-800);
+      background-color: var(--gray-50);
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Animation Keyframes */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Header & Navigation */
+    .header {
+      background-color: transparent;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+
+    .header.scrolled {
+      background-color: var(--white);
+      box-shadow: var(--shadow-md);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      height: 40px;
+      width: auto;
+    }
+
+    .brand-divider {
+      height: 24px;
+      width: 1px;
+      background-color: var(--gray-300);
+    }
+
+    .brand-text {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--white);
+      transition: color 0.3s ease;
+    }
+
+    .header.scrolled .brand-text {
+      color: var(--gray-800);
+    }
+
+    .brand-branch {
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--primary-light);
+      margin-left: 4px;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--white);
+      padding: 8px 12px;
+      border-radius: var(--radius-md);
+      transition: all 0.2s ease;
+    }
+
+    .header.scrolled .nav-link {
+      color: var(--gray-600);
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary-light);
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .header.scrolled .nav-link:hover, 
+    .header.scrolled .nav-link.active {
+      color: var(--primary);
+      background-color: var(--primary-50);
+    }
+
+    .nav-link.active {
+      font-weight: 600;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 24px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .header.scrolled .mobile-toggle {
+      color: var(--gray-700);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(29, 41, 57, 0.9) 0%, rgba(29, 41, 57, 0.7) 100%);
+      z-index: -1;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      text-align: center;
+      color: var(--white);
+      padding: 0 24px;
+      animation: fadeUp 1s ease-out;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      margin-bottom: 24px;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .hero-badge i {
+      color: var(--secondary);
+    }
+
+    .hero-title {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .hero-description {
+      font-size: 18px;
+      margin-bottom: 32px;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--primary);
+      color: var(--white);
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: var(--radius-lg);
+      transition: all 0.2s ease;
+    }
+
+    .hero-btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Event Filters */
+    .event-filters {
+      background-color: var(--white);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      padding: 24px;
+      margin-top: -50px;
+      position: relative;
+      z-index: 10;
+      margin-bottom: 48px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 200px;
+    }
+
+    .filter-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray-700);
+    }
+
+    .filter-select {
+      padding: 10px 16px;
+      border: 1px solid var(--gray-300);
+      border-radius: var(--radius-lg);
+      font-size: 16px;
+      color: var(--gray-800);
+      background-color: var(--white);
+      transition: all 0.2s ease;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23667085' viewBox='0 0 16 16'%3E%3Cpath d='M8 10.5l-4-4h8l-4 4z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      cursor: pointer;
+    }
+
+    .filter-select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(105, 65, 198, 0.1);
+      outline: none;
+    }
+
+    .filter-btn {
+      background-color: var(--primary);
+      color: var(--white);
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: var(--radius-lg);
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .filter-btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-badge {
+      display: inline-block;
+      background-color: var(--primary-50);
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      color: var(--gray-600);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Featured Event */
+    .featured-event {
+      background-color: var(--white);
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 400px;
+    }
+
+    .featured-event-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .featured-event-content {
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-badge {
+      display: inline-block;
+      background-color: var(--primary-50);
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 16px;
+    }
+
+    .featured-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .featured-date {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .featured-desc {
+      font-size: 16px;
+      color: var(--gray-600);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .featured-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--gray-700);
+    }
+
+    .meta-item i {
+      color: var(--primary);
+    }
+
+    .featured-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--primary);
+      color: var(--white);
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: var(--radius-lg);
+      transition: all 0.2s ease;
+      align-self: flex-start;
+    }
+
+    .featured-btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Events Grid */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+    }
+
+    .event-card {
+      background-color: var(--white);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      animation: fadeUp 0.5s ease-out forwards;
+    }
+
+    .event-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .event-card-img-wrapper {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .event-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .event-card:hover .event-card-img {
+      transform: scale(1.05);
+    }
+
+    .event-date-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background-color: var(--white);
+      color: var(--gray-900);
+      padding: 8px 12px;
+      border-radius: var(--radius-lg);
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.2;
+    }
+
+    .date-month {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+
+    .event-card-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .event-card-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .event-card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .event-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--gray-600);
+    }
+
+    .event-meta-item i {
+      color: var(--primary);
+      font-size: 16px;
+    }
+
+    .event-card-desc {
+      font-size: 15px;
+      color: var(--gray-600);
+      margin-bottom: 24px;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .event-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+
+    .event-card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .event-card-btn:hover {
+      color: var(--primary-dark);
+      transform: translateX(4px);
+    }
+
+    .event-category {
+      background-color: var(--primary-50);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    /* News Section */
+    .news-section {
+      background: linear-gradient(120deg, var(--primary-dark) 0%, var(--gray-900) 100%);
+      color: var(--white);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .news-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+      background-size: 20px 20px;
+      opacity: 0.2;
+      z-index: 0;
+    }
+
+    .news-container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .news-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .news-badge {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .news-title {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .news-subtitle {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .news-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .news-tab {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-full);
+      padding: 8px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .news-tab.active, .news-tab:hover {
+      background-color: var(--primary-light);
+      color: var(--white);
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    .news-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .news-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .news-card-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .news-card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .news-date {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .news-category-badge {
+      background-color: var(--primary-light);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    .news-card-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .news-card-desc {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 24px;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .news-card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--primary-light);
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      margin-top: auto;
+    }
+
+    .news-card-btn:hover {
+      color: var(--white);
+      transform: translateX(4px);
+    }
+
+    /* Call to Action */
+    .cta-section {
+      padding: 80px 0;
+      background-color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(var(--primary-50) 1px, transparent 1px);
+      background-size: 20px 20px;
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    .cta-container {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .cta-title {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .cta-desc {
+      font-size: 18px;
+      color: var(--gray-600);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--primary);
+      color: var(--white);
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: var(--radius-lg);
+      transition: all 0.2s ease;
+    }
+
+    .cta-btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .cta-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--white);
+      color: var(--primary);
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--primary-100);
+      transition: all 0.2s ease;
+    }
+
+    .cta-btn-secondary:hover {
+      background-color: var(--primary-50);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--gray-900);
+      color: var(--white);
+      padding: 80px 0 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 64px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-logo img {
+      height: 40px;
+    }
+
+    .footer-logo-text {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--white);
+    }
+
+    .footer-description {
+      color: var(--gray-400);
+      max-width: 320px;
+      font-style: italic;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .social-link:hover {
+      background-color: var(--primary);
+      transform: translateY(-4px);
+    }
+
+    .footer-links-title {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 24px;
+      color: var(--white);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-link {
+      color: var(--gray-400);
+      transition: all 0.2s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--white);
+      transform: translateX(4px);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--gray-400);
+      font-size: 14px;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 320px;
+      height: 100vh;
+      background-color: var(--white);
+      z-index: 1000;
+      padding: 24px;
+      transition: right 0.3s ease;
+      box-shadow: var(--shadow-xl);
+      overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .mobile-close {
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--gray-700);
+      cursor: pointer;
+    }
+
+    .mobile-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mobile-nav-link {
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      font-weight: 500;
+      color: var(--gray-700);
+      transition: all 0.2s ease;
+    }
+
+    .mobile-nav-link:hover, .mobile-nav-link.active {
+      background-color: var(--gray-100);
+      color: var(--primary);
+    }
+
+    .mobile-nav-link.active {
+      font-weight: 600;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Animation Delays for Cards */
+    .event-card:nth-child(1) { animation-delay: 0.1s; }
+    .event-card:nth-child(2) { animation-delay: 0.2s; }
+    .event-card:nth-child(3) { animation-delay: 0.3s; }
+    .event-card:nth-child(4) { animation-delay: 0.4s; }
+    .event-card:nth-child(5) { animation-delay: 0.5s; }
+    .event-card:nth-child(6) { animation-delay: 0.6s; }
+
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+      .hero-title {
+        font-size: 40px;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .featured-event {
+        grid-template-columns: 1fr;
+      }
+      
+      .featured-event-img {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+      
+      .mobile-toggle {
+        display: block;
+      }
+      
+      .hero {
+        height: 500px;
+      }
+      
+      .hero-title {
+        font-size: 32px;
+      }
+      
+      .hero-description {
+        font-size: 16px;
+      }
+      
+      .section-title {
+        font-size: 28px;
+      }
+      
+      .featured-event-content {
+        padding: 32px 24px;
+      }
+      
+      .featured-title {
+        font-size: 24px;
+      }
+      
+      .event-filters {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .filter-group {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero {
+        height: 400px;
+        text-align: center;
+      }
+      
+      .hero-badge {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .hero-title {
+        font-size: 28px;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+      
+      .footer-bottom-links {
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .news-tabs {
+        gap: 8px;
+      }
+      
+      .news-tab {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <img src="TDHC-removebg.png" alt="The Divine Healer's Church Logo" class="logo">
+          <div class="brand-divider"></div>
+          <div>
+            <span class="brand-text">The Divine Healer's Church</span>
+            <span class="brand-branch">NJ Branch</span>
+          </div>
+        </div>
+        
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="ministries.html" class="nav-link">Ministries</a></li>
+          <li><a href="sermon.html" class="nav-link">Sermons</a></li>
+          <li><a href="event.html" class="nav-link active">Events</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        
+        <button class="mobile-toggle" aria-label="Toggle mobile menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="overlay" id="overlay"></div>
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <img src="TDHC-removebg.png" alt="The Divine Healer's Church Logo" class="logo" style="height: 32px;">
+      <button class="mobile-close" aria-label="Close mobile menu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="mobile-nav">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="ministries.html" class="mobile-nav-link">Ministries</a>
+      <a href="sermon.html" class="mobile-nav-link">Sermons</a>
+      <a href="event.html" class="mobile-nav-link active">Events</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" alt="Church Event" class="hero-bg">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Upcoming Events</span>
+      </div>
+      <h1 class="hero-title">Join Us for Inspiring Events</h1>
+      <p class="hero-description">Connect with our community through worship, learning, and fellowship at our upcoming events. There's something for everyone!</p>
+      <a href="#events" class="hero-btn">
+        <i class="fas fa-calendar-check"></i>
+        View All Events
+      </a>
+    </div>
+  </section>
+
+  <!-- Event Filters -->
+  <div class="container">
+    <div class="event-filters">
+      <div class="filter-group">
+        <label for="eventType" class="filter-label">Event Type</label>
+        <select id="eventType" class="filter-select">
+          <option value="all">All Events</option>
+          <option value="worship">Worship</option>
+          <option value="community">Community</option>
+          <option value="youth">Youth</option>
+          <option value="family">Family</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="eventDate" class="filter-label">Date</label>
+        <select id="eventDate" class="filter-select">
+          <option value="all">Any Date</option>
+          <option value="today">Today</option>
+          <option value="week">This Week</option>
+          <option value="month">This Month</option>
+          <option value="year">This Year</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="eventLocation" class="filter-label">Location</label>
+        <select id="eventLocation" class="filter-select">
+          <option value="all">All Locations</option>
+          <option value="main">Main Sanctuary</option>
+          <option value="community">Community Hall</option>
+          <option value="outdoor">Outdoor Venues</option>
+        </select>
+      </div>
+      
+      <button class="filter-btn">
+        <i class="fas fa-filter"></i>
+        Apply Filters
+      </button>
+    </div>
+  </div>
+
+  <!-- Featured Event -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">DON'T MISS</div>
+        <h2 class="section-title">Featured Event</h2>
+        <p class="section-subtitle">Join us for this special upcoming event in our community</p>
+      </div>
+      
+      <div class="featured-event">
+        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Mother's Day Service" class="featured-event-img">
+        <div class="featured-event-content">
+          <div class="featured-badge">SPECIAL SERVICE</div>
+          <h3 class="featured-title">"Love You Anyway" Mother's Day Services 2025</h3>
+          <div class="featured-date">
+            <i class="fas fa-calendar-alt"></i>
+            May 11, 2025
+          </div>
+          <p class="featured-desc">This Sunday, celebrate Mother's Day with us as we reflect on the power of love that never gives up. Join us for a special service honoring mothers and mother figures in our lives with inspiring messages, beautiful music, and heartfelt tributes.</p>
+          <div class="featured-meta">
+            <div class="meta-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Multiple locations</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-clock"></i>
+              <span>9:00 AM & 11:00 AM</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-dollar-sign"></i>
+              <span>Free</span>
+            </div>
+          </div>
+          <a href="#" class="featured-btn">
+            <i class="fas fa-info-circle"></i>
+            Event Details
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- All Events Section -->
+  <section class="section" id="events">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">CALENDAR</div>
+        <h2 class="section-title">Upcoming Events</h2>
+        <p class="section-subtitle">Join us for these upcoming events and activities in our community</p>
+      </div>
+      
+      <div class="events-grid">
+        <!-- Event Card 1 -->
+        <div class="event-card">
+          <div class="event-card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80" alt="Mother's Day Service" class="event-card-img">
+            <div class="event-date-badge">
+              <span class="date-day">11</span>
+              <span class="date-month">MAY</span>
+            </div>
+          </div>
+          <div class="event-card-content">
+            <h3 class="event-card-title">"Love You Anyway" Mother's Day Services 2025</h3>
+            <div class="event-card-meta">
+              <div class="event-meta-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Multiple locations</span>
+              </div>
+              <div class="event-meta-item">
+                <i class="fas fa-clock"></i>
+                <span>9:00 AM</span>
+              </div>
+            </div>
+            <p class="event-card-desc">This Sunday, celebrate Mother's Day with us as we reflect on the power of love that never gives up.</p>
+            <div class="event-card-footer">
+              <a href="#" class="event-card-btn">
+                Learn More
+                <i class="fas fa-arrow-right"></i>
+              </a>
+              <span class="event-category">Worship</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Event Card 2 -->
+        <div class="event-card">
+          <div class="event-card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3fd8?auto=format&fit=crop&w=600&q=80" alt="Y-Camps 2025" class="event-card-img">
+            <div class="event-date-badge">
+              <span class="date-day">15</span>
+              <span class="date-month">JUN</span>
+            </div>
+          </div>
+          <div class="event-card-content">
+            <h3 class="event-card-title">Y-Camps 2025</h3>
+            <div class="event-card-meta">
+              <div class="event-meta-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Koinonia Campgrounds</span>
+              </div>
+              <div class="event-meta-item">
+                <i class="fas fa-clock"></i>
+                <span>All Day</span>
+              </div>
+            </div>
+            <p class="event-card-desc">A week of fun, faith, and friendship for youth and families. Registration opens soon!</p>
+            <div class="event-card-footer">
+              <a href="#" class="event-card-btn">
+                Learn More
+                <i class="fas fa-arrow-right"></i>
+              </a>
+              <span class="event-category">Youth</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Event Card 3 -->
+        <div class="event-card">
+          <div class="event-card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Shoreline Sunday Service" class="event-card-img">
+            <div class="event-date-badge">
+              <span class="date-day">27</span>
+              <span class="date-month">JUL</span>
+            </div>
+          </div>
+          <div class="event-card-content">
+            <h3 class="event-card-title">Shoreline Sunday Service</h3>
+            <div class="event-card-meta">
+              <div class="event-meta-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Shoreline Amphitheater</span>
+              </div>
+              <div class="event-meta-item">
+                <i class="fas fa-clock"></i>
+                <span>10:00 AM</span>
+              </div>
+            </div>
+            <p class="event-card-desc">Join us for a special outdoor worship service and community celebration at Shoreline.</p>
+            <div class="event-card-footer">
+              <a href="#" class="event-card-btn">
+                Learn More
+                <i class="fas fa-arrow-right"></i>
+              </a>
+              <span class="event-category">Worship</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Event Card 4 -->
+        <div class="event-card">
+          <div class="event-card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Family Picnic Sunday" class="event-card-img">
+            <div class="event-date-badge">
+              <span class="date-day">10</span>
+              <span class="date-month">AUG</span>
+            </div>
+          </div>
+          <div class="event-card-content">
+            <h3 class="event-card-title">Family Picnic Sunday</h3>
+            <div class="event-card-meta">
+              <div class="event-meta-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Central Park</span>
+              </div>
+              <div class="event-meta-item">
+                <i class="fas fa-clock"></i>
+                <span>12:00 PM</span>
+              </div>
+            </div>
+            <p class="event-card-desc">Bring your loved ones for a day of fun, food, and community bonding at our church picnic.</p>
+            <div class="event-card-footer">
+              <a href="#" class="event-card-btn">
+                Learn More
+                <i class="fas fa-arrow-right"></i>
+              </a>
+              <span class="event-category">Family</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Event Card 5 -->
+        <div class="event-card">
+          <div class="event-card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=600&q=80" alt="Charity Bake Sale" class="event-card-img">
+            <div class="event-date-badge">
+              <span class="date-day">14</span>
+              <span class="date-month">SEP</span>
+            </div>
+          </div>
+          <div class="event-card-content">
+            <h3 class="event-card-title">Charity Bake Sale</h3>
+            <div class="event-card-meta">
+              <div class="event-meta-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Church Hall</span>
+              </div>
+              <div class="event-meta-item">
+                <i class="fas fa-clock"></i>
+                <span>10:00 AM - 2:00 PM</span>
+              </div>
+            </div>
+            <p class="event-card-desc">Indulge in delightful treats for a cause. All proceeds go to our outreach programs.</p>
+            <div class="event-card-footer">
+              <a href="#" class="event-card-btn">
+                Learn More
+                <i class="fas fa-arrow-right"></i>
+              </a>
+              <span class="event-category">Community</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Event Card 6 -->
+        <div class="event-card">
+          <div class="event-card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1593113598332-cd59a0c3a9a1?auto=format&fit=crop&w=600&q=80" alt="Community Outreach Day" class="event-card-img">
+            <div class="event-date-badge">
+              <span class="date-day">05</span>
+              <span class="date-month">OCT</span>
+            </div>
+          </div>
+          <div class="event-card-content">
+            <h3 class="event-card-title">Community Outreach Day</h3>
+            <div class="event-card-meta">
+              <div class="event-meta-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Various Locations</span>
+              </div>
+              <div class="event-meta-item">
+                <i class="fas fa-clock"></i>
+                <span>9:00 AM - 3:00 PM</span>
+              </div>
+            </div>
+            <p class="event-card-desc">Join us as we serve our neighbors and make a difference in our local community together.</p>
+            <div class="event-card-footer">
+              <a href="#" class="event-card-btn">
+                Learn More
+                <i class="fas fa-arrow-right"></i>
+              </a>
+              <span class="event-category">Outreach</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- News Section -->
+  <section class="news-section">
+    <div class="news-pattern"></div>
+    <div class="container news-container">
+      <div class="news-header">
+        <div class="news-badge">STAY INFORMED</div>
+        <h2 class="news-title">Latest News</h2>
+        <p class="news-subtitle">Keep up with the latest happenings in our church community</p>
+      </div>
+      
+      <div class="news-tabs">
+        <button class="news-tab active">All</button>
+        <button class="news-tab">Church</button>
+        <button class="news-tab">Community</button>
+        <button class="news-tab">Events</button>
+      </div>
+      
+      <div class="news-grid">
+        <!-- News Card 1 -->
+        <div class="news-card">
+          <div class="news-card-content">
+            <div class="news-card-meta">
+              <span class="news-date">May 2, 2025</span>
+              <span class="news-category-badge">Church</span>
+            </div>
+            <h3 class="news-card-title">Our New Outreach Program Launches</h3>
+            <p class="news-card-desc">We're excited to announce a new outreach initiative to support families in our community. Learn how you can get involved!</p>
+            <a href="#" class="news-card-btn">
+              Read More
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- News Card 2 -->
+        <div class="news-card">
+          <div class="news-card-content">
+            <div class="news-card-meta">
+              <span class="news-date">Apr 18, 2025</span>
+              <span class="news-category-badge">Events</span>
+            </div>
+            <h3 class="news-card-title">Spring Picnic Recap</h3>
+            <p class="news-card-desc">Thank you to everyone who joined our annual spring picnic! See highlights and photos from the event.</p>
+            <a href="#" class="news-card-btn">
+              Read More
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- News Card 3 -->
+        <div class="news-card">
+          <div class="news-card-content">
+            <div class="news-card-meta">
+              <span class="news-date">Apr 5, 2025</span>
+              <span class="news-category-badge">Community</span>
+            </div>
+            <h3 class="news-card-title">Volunteer Appreciation Week</h3>
+            <p class="news-card-desc">Join us as we celebrate the dedicated volunteers who make our ministry possible. Special recognition service on Sunday.</p>
+            <a href="#" class="news-card-btn">
+              Read More
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-section">
+    <div class="cta-pattern"></div>
+    <div class="cta-container">
+      <h2 class="cta-title">Want to Host or Suggest an Event?</h2>
+      <p class="cta-desc">We welcome ideas for community gatherings, workshops, and special services. Let us know how we can create meaningful experiences together.</p>
+      <div class="cta-buttons">
+        <a href="#" class="cta-btn-primary">
+          <i class="fas fa-calendar-plus"></i>
+          Submit Event Idea
+        </a>
+        <a href="#" class="cta-btn-secondary">
+          <i class="fas fa-envelope"></i>
+          Contact Event Team
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- About Column -->
+        <div class="footer-column">
+          <div class="footer-logo">
+            <img src="https://placehold.co/100x100/f85c37/ffffff?text=LOGO" alt="Church Logo" class="footer-logo-img">
+            <h3 class="footer-logo-text">Church Name</h3>
+          </div>
+          <p class="footer-about-text">
+            A welcoming community of faith, hope, and love. We are dedicated to serving our community and spreading God's message of love and compassion.
+          </p>
+          <div class="footer-social">
+            <a href="#" class="social-icon-footer" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon-footer" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon-footer" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon-footer" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Sermons</a></li>
+            <li><a href="#">Ministries</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Service Times Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Service Times</h3>
+          <ul class="footer-service-times">
+            <li>
+              <span class="service-day">Sunday:</span>
+              <span class="service-time">10:00 AM - 12:00 PM</span>
+            </li>
+            <li>
+              <span class="service-day">Wednesday:</span>
+              <span class="service-time">7:00 PM - 8:30 PM</span>
+            </li>
+            <li>
+              <span class="service-day">Friday:</span>
+              <span class="service-time">7:00 PM - 9:00 PM (Youth)</span>
+            </li>
+          </ul>
+          <div class="footer-contact-info">
+            <h3 class="footer-heading">Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Faith Street, City, State 12345</p>
+            <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+            <p><i class="fas fa-envelope"></i> info@churchname.org</p>
+          </div>
+        </div>
+
+        <!-- Newsletter Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Stay Connected</h3>
+          <p class="newsletter-text">Subscribe to our newsletter to receive updates on events, sermons, and community outreach.</p>
+          <form class="newsletter-form">
+            <div class="form-group">
+              <input type="text" class="newsletter-input" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+              <input type="email" class="newsletter-input" placeholder="Your Email">
+            </div>
+            <button type="submit" class="newsletter-button">
+              Subscribe <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="copyright">© 2025 The Divine Healer's Church. All Rights Reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      <script src="script.js"></script>
+
+  
+</body>
+</html>

@@ -1,0 +1,2156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | The Divine Healer's Church</title>
+          <!-- <link rel="stylesheet" href="styles.css" /> -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6941C6;
+            --primary-light: #9E77ED;
+            --primary-dark: #53389E;
+            --primary-50: #F4F0FF;
+            --primary-100: #EBE4FF;
+            --secondary: #FF6B3D;
+            --secondary-light: #FF8B66;
+            --secondary-dark: #E54A26;
+            --dark: #1D2939;
+            --gray-900: #101828;
+            --gray-800: #1D2939;
+            --gray-700: #344054;
+            --gray-600: #475467;
+            --gray-500: #667085;
+            --gray-400: #98A2B3;
+            --gray-300: #D0D5DD;
+            --gray-200: #EAECF0;
+            --gray-100: #F2F4F7;
+            --gray-50: #F9FAFB;
+            --white: #FFFFFF;
+            --shadow-sm: 0px 1px 2px rgba(16, 24, 40, 0.05);
+            --shadow-md: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
+            --shadow-lg: 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03);
+            --shadow-xl: 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-2xl: 24px;
+            --radius-full: 9999px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-800);
+            background-color: var(--gray-50);
+            line-height: 1.5;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Header & Navigation */
+        .header {
+            background-color: transparent;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background-color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .brand-divider {
+            height: 24px;
+            width: 1px;
+            background-color: var(--gray-300);
+        }
+
+        .brand-text {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--white);
+            transition: color 0.3s ease;
+        }
+
+        .header.scrolled .brand-text {
+            color: var(--gray-800);
+        }
+
+        .brand-branch {
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--primary-light);
+            margin-left: 4px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            font-size: 16px;
+            color: var(--white);
+            padding: 8px 12px;
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease;
+        }
+
+        .header.scrolled .nav-link {
+            color: var(--gray-600);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-light);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .header.scrolled .nav-link:hover, 
+        .header.scrolled .nav-link.active {
+            color: var(--primary);
+            background-color: var(--primary-50);
+        }
+
+        .nav-link.active {
+            font-weight: 600;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .header.scrolled .mobile-toggle {
+            color: var(--gray-700);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(29, 41, 57, 0.9) 0%, rgba(29, 41, 57, 0.7) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            color: var(--white);
+            animation: fadeUp 1s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            margin-bottom: 24px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .hero-badge i {
+            color: var(--secondary);
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--primary);
+            color: var(--white);
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: var(--radius-lg);
+            transition: all 0.2s ease;
+        }
+
+        .hero-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* About Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background-color: var(--primary-50);
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: var(--radius-full);
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--gray-600);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* MVH Tabs Section */
+        .mvh-section {
+            position: relative;
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            margin-bottom: 80px;
+        }
+
+        .mvh-bg-pattern {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background-image: radial-gradient(var(--primary-100) 2px, transparent 2px);
+            background-size: 20px 20px;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .mvh-inner {
+            position: relative;
+            z-index: 1;
+            padding: 64px;
+        }
+
+        .mvh-tabs {
+            display: flex;
+            gap: 16px;
+            margin: 40px 0;
+            border-bottom: 1px solid var(--gray-200);
+            padding-bottom: 16px;
+        }
+
+        .mvh-tab {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--gray-600);
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .mvh-tab:hover {
+            color: var(--primary);
+            background-color: var(--primary-50);
+        }
+
+        .mvh-tab.active {
+            color: var(--white);
+            background-color: var(--primary);
+        }
+
+        .mvh-tab-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mvh-tab-content {
+            min-height: 300px;
+        }
+
+        .mvh-panel {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .mvh-panel.active {
+            display: block;
+        }
+
+        .mvh-panel-badge {
+            display: inline-block;
+            background-color: var(--primary-50);
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: var(--radius-full);
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .mvh-panel-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 24px;
+        }
+
+        .mvh-panel-desc {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--gray-700);
+            max-width: 800px;
+            margin-bottom: 32px;
+        }
+
+        /* Vision Points */
+        .vision-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 32px;
+        }
+
+        .vision-point {
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .vision-point:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .vision-icon {
+            width: 56px;
+            height: 56px;
+            background-color: var(--primary-50);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .vision-point h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 12px;
+        }
+
+        .vision-point p {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Mission Points */
+        .mission-points {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .mission-point {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            background-color: var(--gray-50);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .mission-point:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .mission-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--primary-50);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .mission-text {
+            flex-grow: 1;
+        }
+
+        .mission-text h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+
+        .mission-text p {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            margin-top: 48px;
+            padding-left: 32px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 2px;
+            background-color: var(--primary-100);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -32px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            border: 4px solid var(--primary-100);
+            z-index: 1;
+        }
+
+        .timeline-year {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 16px;
+            padding: 6px 16px;
+            border-radius: var(--radius-full);
+            margin-bottom: 16px;
+        }
+
+        .timeline-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            font-size: 16px;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background-color: var(--primary-50);
+            padding: 80px 0;
+            margin: 80px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            text-align: center;
+        }
+
+        .stat-item {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 32px 24px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-icon {
+            width: 64px;
+            height: 64px;
+            background-color: var(--primary-50);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 auto 16px;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gray-700);
+        }
+
+        /* Leaders Section */
+        .leaders-section {
+            padding: 80px 0;
+        }
+
+        .leaders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .leader-card {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            height: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.5s ease-out forwards;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .leader-image-wrapper {
+            position: relative;
+            height: 320px;
+            overflow: hidden;
+        }
+
+        .leader-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .leader-card:hover .leader-photo {
+            transform: scale(1.05);
+        }
+
+        .leader-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+        }
+
+        .leader-card:hover .leader-overlay {
+            opacity: 1;
+        }
+
+        .leader-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .leader-social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.2s ease;
+        }
+
+        .leader-social-link:hover {
+            background-color: var(--white);
+            color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .leader-info {
+            padding: 24px;
+        }
+
+        .leader-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 4px;
+        }
+
+        .leader-role {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .leader-bio {
+            font-size: 15px;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: var(--gray-900);
+            color: var(--white);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .testimonials-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .testimonials-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: var(--radius-full);
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .testimonials-title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .testimonials-subtitle {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-quote {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 64px;
+            color: var(--primary-light);
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            opacity: 0.5;
+            font-family: serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .testimonial-role {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Call to Action */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .cta-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .cta-container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 24px;
+        }
+
+        .cta-title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .cta-desc {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--white);
+            color: var(--primary);
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: var(--radius-lg);
+            transition: all 0.2s ease;
+        }
+
+        .cta-btn-primary:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .cta-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.2s ease;
+        }
+
+        .cta-btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Footer */
+         /* Footer Styles */
+  .footer {
+    background-color: #1f2937;
+    color: #f3f4f6;
+    position: relative;
+    z-index: 10;
+  }
+
+  .footer-top {
+    padding: 80px 0 50px;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px;
+  }
+
+  @media (min-width: 640px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .footer-logo-img {
+    height: 50px;
+    width: auto;
+  }
+
+  .footer-logo-text {
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 15px;
+  }
+
+  .footer-about-text {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #d1d5db;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+  }
+
+  .social-icon-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .social-icon-footer:hover {
+    background-color: #f85c37;
+    transform: translateY(-3px);
+  }
+
+  .footer-heading {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+  }
+
+  .footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: #f85c37;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-links li {
+    margin-bottom: 12px;
+  }
+
+  .footer-links a {
+    color: #d1d5db;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    position: relative;
+  }
+
+  .footer-links a::before {
+    content: '›';
+    margin-right: 8px;
+    color: #f85c37;
+    font-weight: bold;
+  }
+
+  .footer-links a:hover {
+    color: white;
+    transform: translateX(5px);
+  }
+
+  .footer-service-times {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+  }
+
+  .footer-service-times li {
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-day {
+    font-weight: 600;
+    color: white;
+  }
+
+  .service-time {
+    color: #d1d5db;
+  }
+
+  .footer-contact-info p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    color: #d1d5db;
+  }
+
+  .footer-contact-info i {
+    width: 20px;
+    margin-right: 10px;
+    color: #f85c37;
+  }
+
+  .newsletter-text {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #d1d5db;
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .form-group {
+    position: relative;
+  }
+
+  .newsletter-input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+
+  .newsletter-input:focus {
+    outline: none;
+    border-color: #f85c37;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .newsletter-input::placeholder {
+    color: #9ca3af;
+  }
+
+  .newsletter-button {
+    padding: 12px 20px;
+    background-color: #f85c37;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .newsletter-button:hover {
+    background-color: #e54a26;
+    transform: translateY(-3px);
+  }
+
+  .newsletter-button i {
+    font-size: 14px;
+  }
+
+  .footer-bottom {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .copyright {
+    color: #9ca3af;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .footer-bottom-links a {
+    color: #9ca3af;
+    font-size: 14px;
+    transition: color 0.3s ease;
+  }
+
+  .footer-bottom-links a:hover {
+    color: white;
+  }
+
+  @media (min-width: 768px) {
+    .footer-bottom .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .copyright {
+      margin-bottom: 0;
+    }
+  }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            background-color: var(--white);
+            z-index: 1000;
+            padding: 24px;
+            transition: right 0.3s ease;
+            box-shadow: var(--shadow-xl);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .mobile-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--gray-700);
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mobile-nav-link {
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            color: var(--gray-700);
+            transition: all 0.2s ease;
+        }
+
+        .mobile-nav-link:hover, .mobile-nav-link.active {
+            background-color: var(--gray-100);
+            color: var(--primary);
+        }
+
+        .mobile-nav-link.active {
+            font-weight: 600;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Animation Delays for Cards */
+        .leader-card:nth-child(1) { animation-delay: 0.1s; }
+        .leader-card:nth-child(2) { animation-delay: 0.2s; }
+        .leader-card:nth-child(3) { animation-delay: 0.3s; }
+        .leader-card:nth-child(4) { animation-delay: 0.4s; }
+        .leader-card:nth-child(5) { animation-delay: 0.5s; }
+        .leader-card:nth-child(6) { animation-delay: 0.6s; }
+        .leader-card:nth-child(7) { animation-delay: 0.7s; }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 40px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .mvh-inner {
+                padding: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .hero {
+                height: 500px;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .hero-description {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .mvh-tabs {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .mvh-inner {
+                padding: 32px 24px;
+            }
+            
+            .timeline {
+                padding-left: 24px;
+            }
+            
+            .timeline-item::before {
+                left: -24px;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                height: 450px;
+                text-align: center;
+            }
+            
+            .hero-badge {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+            
+            .footer-bottom-links {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .mvh-panel-title {
+                font-size: 24px;
+            }
+            
+            .mvh-panel-desc {
+                font-size: 16px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="navbar-brand">
+                    <img src="TDHC-removebg.png" alt="The Divine Healer's Church Logo" class="logo">
+                    <div class="brand-divider"></div>
+                    <div>
+                        <span class="brand-text">The Divine Healer's Church</span>
+                        <span class="brand-branch">NJ Branch</span>
+                    </div>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link active">About</a></li>
+                    <li><a href="ministries.html" class="nav-link">Ministries</a></li>
+                    <li><a href="sermon.html" class="nav-link">Sermons</a></li>
+                    <li><a href="event.html" class="nav-link">Events</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <button class="mobile-toggle" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <img src="TDHC-removebg.png" alt="The Divine Healer's Church Logo" class="logo" style="height: 32px;">
+            <button class="mobile-close" aria-label="Close mobile menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link active">About</a>
+            <a href="ministries.html" class="mobile-nav-link">Ministries</a>
+            <a href="sermon.html" class="mobile-nav-link">Sermons</a>
+            <a href="event.html" class="mobile-nav-link">Events</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="https://images.unsplash.com/photo-1438032005730-c779502df39b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" alt="Church Interior" class="hero-bg">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-church"></i>
+                    <span>Our Story</span>
+                </div>
+                <h1 class="hero-title">About The Divine Healer's Church</h1>
+                <p class="hero-description">Discover our purpose, vision, and the journey that has shaped our community of faith for over three decades.</p>
+                <a href="#who-we-are" class="hero-btn">
+                    <i class="fas fa-arrow-down"></i>
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Vision, Mission, History Section -->
+        <section class="section" id="who-we-are">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">OUR IDENTITY</div>
+                    <h2 class="section-title">Who We Are</h2>
+                    <p class="section-subtitle">Discover our purpose, vision, and the journey that has shaped our community</p>
+                </div>
+                
+                <div class="mvh-section">
+                    <div class="mvh-bg-pattern"></div>
+                    <div class="mvh-inner">
+                        <div class="mvh-tabs" id="mvh-tabs">
+                            <button class="mvh-tab active" data-tab="vision">
+                                <span class="mvh-tab-icon">
+                                    <i class="fas fa-eye"></i>
+                                </span>
+                                Our Vision
+                            </button>
+                            <button class="mvh-tab" data-tab="mission">
+                                <span class="mvh-tab-icon">
+                                    <i class="fas fa-bullseye"></i>
+                                </span>
+                                Our Mission
+                            </button>
+                            <button class="mvh-tab" data-tab="history">
+                                <span class="mvh-tab-icon">
+                                    <i class="fas fa-history"></i>
+                                </span>
+                                Our History
+                            </button>
+                        </div>
+                        
+                        <div class="mvh-tab-content" id="mvh-tab-content">
+                            <!-- Vision Panel -->
+                            <div class="mvh-panel active" data-panel="vision">
+                                <div class="mvh-panel-badge">WHY WE GIVE</div>
+                                <h3 class="mvh-panel-title">Our Vision</h3>
+                                <p class="mvh-panel-desc">Worry Ends When Faith Begins. The Magnificent Story of a Life-Changing Journey to God. Some phrases carry such strong comfort, such enduring consolation, that they ought to be engraved on the walls of the heart.</p>
+                                <div class="vision-points">
+                                    <div class="vision-point">
+                                        <div class="vision-icon">
+                                            <i class="fas fa-hands-helping"></i>
+                                        </div>
+                                        <h4>Community Service</h4>
+                                        <p>To be a beacon of hope and service in our community, meeting both spiritual and practical needs through outreach programs and volunteer initiatives.</p>
+                                    </div>
+                                    <div class="vision-point">
+                                        <div class="vision-icon">
+                                            <i class="fas fa-globe-americas"></i>
+                                        </div>
+                                        <h4>Global Impact</h4>
+                                        <p>To extend our reach globally, supporting missions and humanitarian efforts worldwide that bring hope, healing, and the message of God's love.</p>
+                                    </div>
+                                    <div class="vision-point">
+                                        <div class="vision-icon">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                        <h4>Inclusive Fellowship</h4>
+                                        <p>To create a welcoming environment where people from all walks of life can find belonging, acceptance, and spiritual growth in a diverse community.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Mission Panel -->
+                            <div class="mvh-panel" data-panel="mission">
+                                <div class="mvh-panel-badge">WHAT WE ARE FOCUSED ON</div>
+                                <h3 class="mvh-panel-title">Our Mission</h3>
+                                <p class="mvh-panel-desc">We are committed to becoming a multi-generational, multi-ethnic, multiplying movement of Christ followers, empowering our kids and students to not only be the church of tomorrow, but the church of today.</p>
+                                <div class="mission-points">
+                                    <div class="mission-point">
+                                        <div class="mission-icon">
+                                            <i class="fas fa-pray"></i>
+                                        </div>
+                                        <div class="mission-text">
+                                            <h4>Spiritual Growth</h4>
+                                            <p>Fostering deep spiritual growth through biblical teaching, discipleship, and creating opportunities for meaningful worship and prayer experiences.</p>
+                                        </div>
+                                    </div>
+                                    <div class="mission-point">
+                                        <div class="mission-icon">
+                                            <i class="fas fa-hands"></i>
+                                        </div>
+                                        <div class="mission-text">
+                                            <h4>Compassionate Service</h4>
+                                            <p>Serving our community with Christ's love through practical acts of kindness, meeting physical needs, and being present during times of crisis and celebration.</p>
+                                        </div>
+                                    </div>
+                                    <div class="mission-point">
+                                        <div class="mission-icon">
+                                            <i class="fas fa-child"></i>
+                                        </div>
+                                        <div class="mission-text">
+                                            <h4>Next Generation</h4>
+                                            <p>Investing in children and youth as the present and future of our church, providing age-appropriate spiritual formation and leadership development.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- History Panel -->
+                            <div class="mvh-panel" data-panel="history">
+                                <div class="mvh-panel-badge">OUR JOURNEY</div>
+                                <h3 class="mvh-panel-title">Our History</h3>
+                                <p class="mvh-panel-desc">For over three decades, our church has been a beacon of hope and transformation in our community. Our rich history reflects God's faithfulness and the dedication of generations of believers.</p>
+                                <div class="timeline">
+                                    <div class="timeline-item">
+                                        <div class="timeline-year">1985</div>
+                                        <h4 class="timeline-title">Our Humble Beginnings</h4>
+                                        <p class="timeline-desc">Starting with just 12 members meeting in a living room, our church was founded on principles of love and community service. Pastor Justin Davies Sr. led the first service with a vision for a church that would welcome all.</p>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-year">1995</div>
+                                        <h4 class="timeline-title">First Church Building</h4>
+                                        <p class="timeline-desc">After a decade of growth, we celebrated the opening of our first dedicated church building, a milestone in our community's journey. The congregation had grown to over 200 members by this time.</p>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-year">2005</div>
+                                        <h4 class="timeline-title">Community Outreach Expansion</h4>
+                                        <p class="timeline-desc">We launched our international missions program and expanded local outreach initiatives to serve more people in need. Our food pantry, clothing ministry, and counseling services began during this period.</p>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-year">2015</div>
+                                        <h4 class="timeline-title">Multi-Campus Growth</h4>
+                                        <p class="timeline-desc">Expanding our reach, we opened our second campus in a neighboring community, bringing our message of hope and healing to more people in the region.</p>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-year">2020</div>
+                                        <h4 class="timeline-title">Digital Transformation</h4>
+                                        <p class="timeline-desc">Adapting to changing times, we embraced technology to reach more people through online services and digital ministry, connecting with thousands beyond our physical locations.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-church"></i>
+                        </div>
+                        <div class="stat-number">40</div>
+                        <div class="stat-label">Years of Ministry</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-number">2,500+</div>
+                        <div class="stat-label">Church Members</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="stat-number">15,000+</div>
+                        <div class="stat-label">People Served</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Countries Reached</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leaders Section -->
+        <section class="section leaders-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">OUR TEAM</div>
+                    <h2 class="section-title">Meet Our Leaders</h2>
+                    <p class="section-subtitle">Dedicated individuals guiding our community with wisdom and compassion</p>
+                </div>
+                
+                <div class="leaders-grid">
+                    <!-- Leader Card 1 -->
+                    <div class="leader-card">
+                        <div class="leader-image-wrapper">
+                            <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="Justin Davies" class="leader-photo">
+                            <div class="leader-overlay">
+                                <div class="leader-social">
+                                    <a href="#" aria-label="LinkedIn" class="leader-social-link">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="#" aria-label="Email" class="leader-social-link">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    <a href="#" aria-label="Twitter" class="leader-social-link">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leader-info">
+                            <h3 class="leader-name">Justin Davies</h3>
+                            <p class="leader-role">Senior Pastor</p>
+                            <p class="leader-bio">Leading our congregation with over 15 years of pastoral experience and a heart for community service.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Leader Card 2 -->
+                    <div class="leader-card">
+                        <div class="leader-image-wrapper">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dan Tyson" class="leader-photo">
+                            <div class="leader-overlay">
+                                <div class="leader-social">
+                                    <a href="#" aria-label="LinkedIn" class="leader-social-link">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="#" aria-label="Email" class="leader-social-link">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    <a href="#" aria-label="Twitter" class="leader-social-link">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leader-info">
+                            <h3 class="leader-name">Dan Tyson</h3>
+                            <p class="leader-role">Worship Director</p>
+                            <p class="leader-bio">Bringing over a decade of musical expertise to create meaningful worship experiences.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Leader Card 3 -->
+                    <div class="leader-card">
+                        <div class="leader-image-wrapper">
+                            <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Matthew Hill" class="leader-photo">
+                            <div class="leader-overlay">
+                                <div class="leader-social">
+                                    <a href="#" aria-label="LinkedIn" class="leader-social-link">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="#" aria-label="Email" class="leader-social-link">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    <a href="#" aria-label="Twitter" class="leader-social-link">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leader-info">
+                            <h3 class="leader-name">Matthew Hill</h3>
+                            <p class="leader-role">Youth Minister</p>
+                            <p class="leader-bio">Passionate about mentoring young people and creating engaging youth programs.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Leader Card 4 -->
+                    <div class="leader-card">
+                        <div class="leader-image-wrapper">
+                            <img src="https://randomuser.me/api/portraits/men/34.jpg" alt="Brian Carroll" class="leader-photo">
+                            <div class="leader-overlay">
+                                <div class="leader-social">
+                                    <a href="#" aria-label="LinkedIn" class="leader-social-link">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="#" aria-label="Email" class="leader-social-link">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    <a href="#" aria-label="Twitter" class="leader-social-link">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leader-info">
+                            <h3 class="leader-name">Brian Carroll</h3>
+                            <p class="leader-role">Community Outreach</p>
+                            <p class="leader-bio">Dedicated to serving our community and building meaningful partnerships.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Leader Card 5 -->
+                    <div class="leader-card">
+                        <div class="leader-image-wrapper">
+                            <img src="https://randomuser.me/api/portraits/men/35.jpg" alt="Samuel Lee" class="leader-photo">
+                            <div class="leader-overlay">
+                                <div class="leader-social">
+                                    <a href="#" aria-label="LinkedIn" class="leader-social-link">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="#" aria-label="Email" class="leader-social-link">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    <a href="#" aria-label="Twitter" class="leader-social-link">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leader-info">
+                            <h3 class="leader-name">Samuel Lee</h3>
+                            <p class="leader-role">Music Director</p>
+                            <p class="leader-bio">Creating inspiring worship experiences through music and creative arts.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Leader Card 6 -->
+                    <div class="leader-card">
+                        <div class="leader-image-wrapper">
+                            <img src="https://randomuser.me/api/portraits/men/36.jpg" alt="Paul Kim" class="leader-photo">
+                            <div class="leader-overlay">
+                                <div class="leader-social">
+                                    <a href="#" aria-label="LinkedIn" class="leader-social-link">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="#" aria-label="Email" class="leader-social-link">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    <a href="#" aria-label="Twitter" class="leader-social-link">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leader-info">
+                            <h3 class="leader-name">Paul Kim</h3>
+                            <p class="leader-role">Children's Ministry</p>
+                            <p class="leader-bio">Nurturing young hearts and minds through engaging children's programs.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Leader Card 7 -->
+                    <div class="leader-card">
+                        <div class="leader-image-wrapper">
+                            <img src="https://randomuser.me/api/portraits/men/37.jpg" alt="David Smith" class="leader-photo">
+                            <div class="leader-overlay">
+                                <div class="leader-social">
+                                    <a href="#" aria-label="LinkedIn" class="leader-social-link">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="#" aria-label="Email" class="leader-social-link">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    <a href="#" aria-label="Twitter" class="leader-social-link">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leader-info">
+                            <h3 class="leader-name">David Smith</h3>
+                            <p class="leader-role">Administrative Director</p>
+                            <p class="leader-bio">Ensuring smooth operations and supporting our ministry teams.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="testimonials-pattern"></div>
+            <div class="container testimonials-container">
+                <div class="testimonials-header">
+                    <div class="testimonials-badge">TESTIMONIALS</div>
+                    <h2 class="testimonials-title">Lives Changed in Our Community</h2>
+                    <p class="testimonials-subtitle">Hear from those who have found hope, healing, and community at The Divine Healer's Church</p>
+                </div>
+                
+                <div class="testimonials-grid">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">Finding The Divine Healer's Church was a turning point in my life. The community welcomed me with open arms during a difficult time, and I've grown so much in my faith journey here.</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">Sarah Johnson</div>
+                                <div class="testimonial-role">Member since 2018</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">The youth program has been incredible for my teenagers. They've found mentors who truly care about them and a safe place to explore their faith and ask tough questions.</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Thompson" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">Michael Thompson</div>
+                                <div class="testimonial-role">Parent</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-quote">Serving in the Outreach Ministry has opened my eyes to the needs in our community and given me the opportunity to be the hands and feet of Jesus in practical ways.</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Rebecca Martinez" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">Rebecca Martinez</div>
+                                <div class="testimonial-role">Volunteer</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <div class="cta-pattern"></div>
+            <div class="cta-container">
+                <h2 class="cta-title">Join Our Community</h2>
+                <p class="cta-desc">Whether you're exploring faith for the first time or looking for a church home, we'd love to welcome you to The Divine Healer's Church.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="cta-btn-primary">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Visit Us
+                    </a>
+                    <a href="#" class="cta-btn-secondary">
+                        <i class="fas fa-envelope"></i>
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- About Column -->
+        <div class="footer-column">
+          <div class="footer-logo">
+            <img src="https://placehold.co/100x100/f85c37/ffffff?text=LOGO" alt="Church Logo" class="footer-logo-img">
+            <h3 class="footer-logo-text">Church Name</h3>
+          </div>
+          <p class="footer-about-text">
+            A welcoming community of faith, hope, and love. We are dedicated to serving our community and spreading God's message of love and compassion.
+          </p>
+          <div class="footer-social">
+            <a href="#" class="social-icon-footer" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon-footer" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon-footer" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon-footer" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Sermons</a></li>
+            <li><a href="#">Ministries</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Service Times Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Service Times</h3>
+          <ul class="footer-service-times">
+            <li>
+              <span class="service-day">Sunday:</span>
+              <span class="service-time">10:00 AM - 12:00 PM</span>
+            </li>
+            <li>
+              <span class="service-day">Wednesday:</span>
+              <span class="service-time">7:00 PM - 8:30 PM</span>
+            </li>
+            <li>
+              <span class="service-day">Friday:</span>
+              <span class="service-time">7:00 PM - 9:00 PM (Youth)</span>
+            </li>
+          </ul>
+          <div class="footer-contact-info">
+            <h3 class="footer-heading">Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Faith Street, City, State 12345</p>
+            <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+            <p><i class="fas fa-envelope"></i> info@churchname.org</p>
+          </div>
+        </div>
+
+        <!-- Newsletter Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Stay Connected</h3>
+          <p class="newsletter-text">Subscribe to our newsletter to receive updates on events, sermons, and community outreach.</p>
+          <form class="newsletter-form">
+            <div class="form-group">
+              <input type="text" class="newsletter-input" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+              <input type="email" class="newsletter-input" placeholder="Your Email">
+            </div>
+            <button type="submit" class="newsletter-button">
+              Subscribe <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="copyright">© 2025 The Divine Healer's Church. All Rights Reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const mobileClose = document.querySelector('.mobile-close');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const overlay = document.getElementById('overlay');
+            
+            mobileToggle.addEventListener('click', function() {
+                mobileMenu.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            mobileClose.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            overlay.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            // Header Scroll Effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Tab Functionality
+            const tabs = document.querySelectorAll('.mvh-tab');
+            const panels = document.querySelectorAll('.mvh-panel');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Hide all panels
+                    panels.forEach(panel => panel.classList.remove('active'));
+                    
+                    // Show the corresponding panel
+                    const panelId = this.getAttribute('data-tab');
+                    const panel = document.querySelector(`.mvh-panel[data-panel="${panelId}"]`);
+                    panel.classList.add('active');
+                });
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Animation for leader cards on scroll
+            if ('IntersectionObserver' in window) {
+                const leaderCards = document.querySelectorAll('.leader-card');
+                
+                const leaderObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                            leaderObserver.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+                
+                leaderCards.forEach(card => {
+                    leaderObserver.observe(card);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

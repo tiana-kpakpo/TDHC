@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Home | The Divine Healer's Church</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+      <style>
+        :root {
+            --primary: #6941C6;
+            --primary-light: #9E77ED;
+            --primary-dark: #53389E;
+            --primary-50: #F4F0FF;
+            --primary-100: #EBE4FF;
+            --secondary: #FF6B3D;
+            --secondary-light: #FF8B66;
+            --secondary-dark: #E54A26;
+            --dark: #1D2939;
+            --gray-900: #101828;
+            --gray-800: #1D2939;
+            --gray-700: #344054;
+            --gray-600: #475467;
+            --gray-500: #667085;
+            --gray-400: #98A2B3;
+            --gray-300: #D0D5DD;
+            --gray-200: #EAECF0;
+            --gray-100: #F2F4F7;
+            --gray-50: #F9FAFB;
+            --white: #FFFFFF;
+            --shadow-sm: 0px 1px 2px rgba(16, 24, 40, 0.05);
+            --shadow-md: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
+            --shadow-lg: 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03);
+            --shadow-xl: 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-2xl: 24px;
+            --radius-full: 9999px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-800);
+            background-color: var(--gray-50);
+            line-height: 1.5;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Header & Navigation */
+        .header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .brand-divider {
+            height: 24px;
+            width: 1px;
+            background-color: var(--gray-300);
+        }
+
+        .brand-text {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--gray-800);
+        }
+
+        .brand-branch {
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--primary);
+            margin-left: 4px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            font-size: 16px;
+            color: var(--gray-600);
+            padding: 8px 12px;
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+            background-color: var(--gray-50);
+        }
+
+        .nav-link.active {
+            font-weight: 600;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gray-700);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(29, 41, 57, 0.9) 0%, rgba(29, 41, 57, 0.7) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            color: var(--white);
+            animation: fadeUp 1s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            margin-bottom: 24px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .hero-badge i {
+            color: var(--secondary);
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        /* Contact Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background-color: var(--primary-50);
+            color: var(--primary);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: var(--radius-full);
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--gray-600);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 80px;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .contact-card {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            animation: fadeUp 0.5s ease-out forwards;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-full);
+            background-color: var(--primary-50);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .contact-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            margin-top: 4px;
+        }
+
+        .contact-text {
+            font-size: 16px;
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        .contact-text strong {
+            color: var(--gray-900);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-full);
+            background-color: var(--gray-100);
+            color: var(--gray-700);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-4px);
+        }
+
+        /* Service Hours */
+        .service-hours {
+            margin-top: 24px;
+        }
+
+        .service-hours-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 16px;
+        }
+
+        .service-hours-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 15px;
+            color: var(--gray-700);
+        }
+
+        .service-day {
+            font-weight: 500;
+        }
+
+        .service-time {
+            color: var(--primary);
+        }
+
+        /* Contact Form */
+        .contact-form-wrapper {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            padding: 40px;
+            animation: fadeUp 0.5s ease-out forwards;
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+
+        .form-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 24px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-lg);
+            font-size: 16px;
+            color: var(--gray-800);
+            transition: all 0.2s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(105, 65, 198, 0.1);
+            outline: none;
+        }
+
+        .form-control::placeholder {
+            color: var(--gray-500);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Map Section */
+        .map-section {
+            margin-bottom: 80px;
+        }
+
+        .map-container {
+            position: relative;
+            height: 500px;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .map-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+           
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            background-color: var(--white);
+            z-index: 1000;
+            padding: 24px;
+            transition: right 0.3s ease;
+            box-shadow: var(--shadow-xl);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .mobile-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--gray-700);
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mobile-nav-link {
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            color: var(--gray-700);
+            transition: all 0.2s ease;
+        }
+
+        .mobile-nav-link:hover, .mobile-nav-link.active {
+            background-color: var(--gray-100);
+            color: var(--primary);
+        }
+
+        .mobile-nav-link.active {
+            font-weight: 600;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 40px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .hero {
+                height: 350px;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .hero-description {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .map-container {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                height: 300px;
+                text-align: center;
+            }
+            
+            .hero-badge {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+            
+            .footer-bottom-links {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .contact-form-wrapper {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+      <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="navbar-brand">
+                    <img src="TDHC-removebg.png" alt="The Divine Healer's Church Logo" class="logo">
+                    <div class="brand-divider"></div>
+                    <div>
+                        <span class="brand-text">The Divine Healer's Church</span>
+                        <span class="brand-branch">NJ Branch</span>
+                    </div>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="ministries.html" class="nav-link">Ministries</a></li>
+                    <li><a href="sermon.html" class="nav-link">Sermons</a></li>
+                    <li><a href="event.html" class="nav-link">Events</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+                
+                <button class="mobile-toggle" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <img src="TDHC-removebg.png" alt="The Divine Healer's Church Logo" class="logo" style="height: 32px;">
+            <button class="mobile-close" aria-label="Close mobile menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="ministries.html" class="mobile-nav-link">Ministries</a>
+            <a href="sermon.html" class="mobile-nav-link">Sermons</a>
+            <a href="event.html" class="mobile-nav-link">Events</a>
+            <a href="contact.html" class="mobile-nav-link active">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="https://images.unsplash.com/photo-1560184611-ff3e53f00e8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80" alt="Church Interior" class="hero-bg">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-envelope"></i>
+                    <span>Get in Touch</span>
+                </div>
+                <h1 class="hero-title">Contact Us</h1>
+                <p class="hero-description">We'd love to hear from you. Reach out with questions, prayer requests, or to learn more about our community.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">CONNECT WITH US</div>
+                <h2 class="section-title">How Can We Help You?</h2>
+                <p class="section-subtitle">Whether you have questions about our services, need prayer, or want to get involved, we're here for you.</p>
+            </div>
+            
+            <div class="contact-grid">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <!-- Visit Us Card -->
+                    <div class="contact-card">
+                        <div class="contact-card-header">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3 class="contact-title">Visit Us</h3>
+                        </div>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-building"></i>
+                                <div class="contact-text">
+                                    <strong>Church Address</strong>
+                                    123 Faith Avenue<br>
+                                    Newark, NJ 07102
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-directions"></i>
+                                <div class="contact-text">
+                                    <strong>Directions</strong>
+                                    Located 2 blocks from Newark Penn Station. Free parking available in our lot.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Service Hours -->
+                        <div class="service-hours">
+                            <h4 class="service-hours-title">Service Hours</h4>
+                            <div class="service-hours-list">
+                                <div class="service-item">
+                                    <span class="service-day">Sunday Worship</span>
+                                    <span class="service-time">10:00 AM - 12:00 PM</span>
+                                </div>
+                                <div class="service-item">
+                                    <span class="service-day">Wednesday Bible Study</span>
+                                    <span class="service-time">7:00 PM - 8:30 PM</span>
+                                </div>
+                                <div class="service-item">
+                                    <span class="service-day">Friday Youth Service</span>
+                                    <span class="service-time">6:30 PM - 8:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Card -->
+                    <div class="contact-card">
+                        <div class="contact-card-header">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <h3 class="contact-title">Contact Information</h3>
+                        </div>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <div class="contact-text">
+                                    <strong>Phone</strong>
+                                    (201) 555-1234
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div class="contact-text">
+                                    <strong>Email</strong>
+                                    info@divinehealer.church
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-clock"></i>
+                                <div class="contact-text">
+                                    <strong>Office Hours</strong>
+                                    Monday - Friday: 9:00 AM - 5:00 PM
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Social Links -->
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <h3 class="form-title">Send Us a Message</h3>
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Your first name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Your last name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <select id="subject" name="subject" class="form-control" required>
+                                <option value="" selected disabled>Select a subject</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="Prayer Request">Prayer Request</option>
+                                <option value="Volunteer Opportunities">Volunteer Opportunities</option>
+                                <option value="Membership Information">Membership Information</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="Your message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24217.07239406806!2d-74.18697233022463!3d40.735657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2537d81577c29%3A0x5f8c76ef40da8425!2sNewark%2C%20NJ%2007102!5e0!3m2!1sen!2sus!4v1684789542051!5m2!1sen!2sus" class="map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Church Location Map"></iframe>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+ <footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- About Column -->
+        <div class="footer-column">
+          <div class="footer-logo">
+            <img src="https://placehold.co/100x100/f85c37/ffffff?text=LOGO" alt="Church Logo" class="footer-logo-img">
+            <h3 class="footer-logo-text">Church Name</h3>
+          </div>
+          <p class="footer-about-text">
+            A welcoming community of faith, hope, and love. We are dedicated to serving our community and spreading God's message of love and compassion.
+          </p>
+          <div class="footer-social">
+            <a href="#" class="social-icon-footer" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon-footer" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon-footer" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon-footer" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Sermons</a></li>
+            <li><a href="#">Ministries</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Service Times Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Service Times</h3>
+          <ul class="footer-service-times">
+            <li>
+              <span class="service-day">Sunday:</span>
+              <span class="service-time">10:00 AM - 12:00 PM</span>
+            </li>
+            <li>
+              <span class="service-day">Wednesday:</span>
+              <span class="service-time">7:00 PM - 8:30 PM</span>
+            </li>
+            <li>
+              <span class="service-day">Friday:</span>
+              <span class="service-time">7:00 PM - 9:00 PM (Youth)</span>
+            </li>
+          </ul>
+          <div class="footer-contact-info">
+            <h3 class="footer-heading">Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Faith Street, City, State 12345</p>
+            <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+            <p><i class="fas fa-envelope"></i> info@churchname.org</p>
+          </div>
+        </div>
+
+        <!-- Newsletter Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Stay Connected</h3>
+          <p class="newsletter-text">Subscribe to our newsletter to receive updates on events, sermons, and community outreach.</p>
+          <form class="newsletter-form">
+            <div class="form-group">
+              <input type="text" class="newsletter-input" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+              <input type="email" class="newsletter-input" placeholder="Your Email">
+            </div>
+            <button type="submit" class="newsletter-button">
+              Subscribe <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="copyright">© 2025 Church Name. All Rights Reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      <script src="script.js"></script>
+
+  
+</body>
+</html>

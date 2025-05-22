@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Home | The Divine Healer's Church</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+
+        <style>
+        :root {
+            --primary: #6941C6;
+            --primary-light: #9E77ED;
+            --primary-dark: #53389E;
+            --secondary: #FF6B3D;
+            --secondary-light: #FF8B66;
+            --secondary-dark: #E54A26;
+            --dark: #1D2939;
+            --gray-800: #1D2939;
+            --gray-700: #344054;
+            --gray-600: #475467;
+            --gray-500: #667085;
+            --gray-400: #98A2B3;
+            --gray-300: #D0D5DD;
+            --gray-200: #EAECF0;
+            --gray-100: #F2F4F7;
+            --gray-50: #F9FAFB;
+            --white: #FFFFFF;
+            --shadow-sm: 0px 1px 2px rgba(16, 24, 40, 0.05);
+            --shadow-md: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
+            --shadow-lg: 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03);
+            --shadow-xl: 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --radius-2xl: 24px;
+            --radius-full: 9999px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-800);
+            background-color: var(--gray-50);
+            line-height: 1.5;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        /* Header & Navigation */
+        .header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .brand-divider {
+            height: 24px;
+            width: 1px;
+            background-color: var(--gray-300);
+        }
+
+        .brand-text {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--gray-800);
+        }
+
+        .brand-branch {
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--primary);
+            margin-left: 4px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            font-size: 16px;
+            color: var(--gray-600);
+            padding: 8px 12px;
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+            background-color: var(--gray-50);
+        }
+
+        .nav-link.active {
+            font-weight: 600;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gray-700);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(29, 41, 57, 0.9) 0%, rgba(29, 41, 57, 0.7) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            color: var(--white);
+            animation: fadeUp 1s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            margin-bottom: 24px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .hero-badge i {
+            color: var(--secondary);
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 1px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Sermons Section */
+        .sermons-section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--gray-800);
+            margin-bottom: 16px;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Filter Bar */
+        .filter-bar {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 16px 24px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .filter-select, .filter-input {
+            background-color: var(--white);
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-lg);
+            padding: 10px 16px;
+            font-size: 16px;
+            color: var(--gray-700);
+            min-width: 180px;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .filter-select:focus, .filter-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(105, 65, 198, 0.1);
+        }
+
+        .filter-input {
+            flex: 1;
+            min-width: 240px;
+            padding-left: 40px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23667085' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: 12px center;
+            background-size: 20px;
+        }
+
+        .filter-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-filter {
+            background-color: var(--gray-100);
+            color: var(--gray-700);
+            padding: 10px 16px;
+        }
+
+        .btn-filter:hover {
+            background-color: var(--gray-200);
+        }
+
+        .btn-filter.active {
+            background-color: var(--primary-light);
+            color: var(--white);
+        }
+
+        /* Sermons Grid */
+        .sermons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+        }
+
+        .sermon-card {
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.5s ease-out forwards;
+        }
+
+        .sermon-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .sermon-card-img-wrapper {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .sermon-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .sermon-card:hover .sermon-card-img {
+            transform: scale(1.05);
+        }
+
+        .sermon-date-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: var(--radius-lg);
+            font-weight: 700;
+            font-size: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: var(--shadow-md);
+            line-height: 1.2;
+        }
+
+        .sermon-date-badge span {
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .sermon-category {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .sermon-card-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .sermon-card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gray-800);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .sermon-meta-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .sermon-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-600);
+            font-size: 15px;
+        }
+
+        .sermon-meta-item i {
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        .sermon-meta-item strong {
+            color: var(--gray-800);
+            font-weight: 600;
+        }
+
+        .sermon-media {
+            margin-top: auto;
+            padding-top: 16px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        /* Modern Audio Player */
+        .audio-player {
+            background-color: var(--gray-100);
+            border-radius: var(--radius-lg);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .audio-play-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+
+        .audio-play-btn:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        .audio-play-btn i {
+            font-size: 18px;
+        }
+
+        .audio-progress-container {
+            flex: 1;
+            height: 8px;
+            background-color: var(--gray-300);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .audio-progress {
+            height: 100%;
+            background-color: var(--primary);
+            width: 0;
+            border-radius: var(--radius-full);
+            position: relative;
+        }
+
+        .audio-progress::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(50%, -50%);
+            width: 12px;
+            height: 12px;
+            background-color: var(--white);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .audio-time {
+            font-size: 14px;
+            color: var(--gray-700);
+            font-weight: 500;
+            min-width: 80px;
+            text-align: right;
+        }
+
+        /* Video Player */
+        .video-player {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        video {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            background-color: var(--gray-100);
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 48px;
+        }
+
+        .page-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .page-item:hover {
+            background-color: var(--gray-100);
+        }
+
+        .page-item.active {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .page-item.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+     
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 40px;
+            }
+            
+          
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .hero {
+                height: 400px;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .hero-description {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .filter-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .filter-group {
+                flex-direction: column;
+            }
+            
+            .sermons-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                height: 350px;
+                text-align: center;
+            }
+            
+            .hero-badge {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+         
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            background-color: var(--white);
+            z-index: 1000;
+            padding: 24px;
+            transition: right 0.3s ease;
+            box-shadow: var(--shadow-xl);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .mobile-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--gray-700);
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mobile-nav-link {
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            color: var(--gray-700);
+            transition: all 0.2s ease;
+        }
+
+        .mobile-nav-link:hover, .mobile-nav-link.active {
+            background-color: var(--gray-100);
+            color: var(--primary);
+        }
+
+        .mobile-nav-link.active {
+            font-weight: 600;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Animations for sermon cards */
+        .sermon-card:nth-child(1) { animation-delay: 0.1s; }
+        .sermon-card:nth-child(2) { animation-delay: 0.2s; }
+        .sermon-card:nth-child(3) { animation-delay: 0.3s; }
+        .sermon-card:nth-child(4) { animation-delay: 0.4s; }
+        .sermon-card:nth-child(5) { animation-delay: 0.5s; }
+        .sermon-card:nth-child(6) { animation-delay: 0.6s; }
+        .sermon-card:nth-child(7) { animation-delay: 0.7s; }
+        .sermon-card:nth-child(8) { animation-delay: 0.8s; }
+    </style>
+</head>
+<body>
+
+   <!-- Transparent Navbar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="/TDHC-removebg.png" alt="Logo" class="logo-img">
+      <div class="logo-text">The Divine Healer's Church - NJ Branch</div>
+    </div>
+    
+    <ul class="nav-menu">
+      <li><a href="/" class="nav-link ">Home</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="ministries.html" class="nav-link">Ministries</a></li>
+      <li><a href="event.html" class="nav-link">Events</a></li>
+      <li><a href="sermon.html" class="nav-link active">Sermons</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    
+    <!-- <a href="#" class="cta-button">Donate</a> -->
+    
+    <button class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <button class="mobile-menu-close">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="mobile-menu-links">
+      <a href="/">Home</a>
+      <a href="about.html">About</a>
+      <a href="ministries.html">Ministries</a>
+      <a href="event.html">Events</a>
+      <a href="sermon.html"  class="active">Sermons</a>
+      <a href="contact.html">Contact</a>
+      <!-- <a href="#" class="donate-mobile">Donate</a> -->
+    </div>
+  </div>
+  <div class="overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="https://images.unsplash.com/photo-1507692812060-98338d07aca3?auto=format&fit=crop&w=1920&q=80" alt="Sermon Background" class="hero-bg">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-book-bible"></i>
+                    <span>Weekly Teachings</span>
+                </div>
+                <h1 class="hero-title">Inspiring Sermons for Spiritual Growth</h1>
+                <p class="hero-description">Listen, reflect, and grow with our latest sermons. Each message is crafted to uplift, encourage, and guide you in your faith journey.</p>
+                <div class="hero-actions">
+                    <a href="#sermons" class="btn btn-primary">
+                        <span>Browse Sermons</span>
+                        <i class="fas fa-arrow-down"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline">
+                        <i class="fas fa-podcast"></i>
+                        <span>Subscribe to Podcast</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sermons Section -->
+    <section class="sermons-section" id="sermons">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Latest <span>Sermons</span></h2>
+                <p class="section-subtitle">Explore our collection of inspiring messages that will help you grow in your faith and spiritual journey.</p>
+            </div>
+
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <select class="filter-select" id="filter-category" aria-label="Filter by category">
+                        <option value="">All Categories</option>
+                        <option value="Pray">Prayer</option>
+                        <option value="Faith">Faith</option>
+                        <option value="Hope">Hope</option>
+                        <option value="Love">Love</option>
+                    </select>
+                    <select class="filter-select" id="filter-preacher" aria-label="Filter by preacher">
+                        <option value="">All Preachers</option>
+                        <option value="John Due">John Due</option>
+                        <option value="Sarah Lee">Sarah Lee</option>
+                        <option value="Justin Davies">Justin Davies</option>
+                    </select>
+                    <div style="position: relative; flex: 1;">
+                        <input type="text" class="filter-input" id="filter-title" placeholder="Search by title or keyword..." aria-label="Search sermons">
+                    </div>
+                </div>
+                <div class="filter-actions">
+                    <button class="btn btn-filter active" data-view="grid">
+                        <i class="fas fa-th-large"></i>
+                    </button>
+                    <button class="btn btn-filter" data-view="list">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sermons Grid -->
+            <div class="sermons-grid" id="sermons-grid">
+                <!-- Sermon Card 1 -->
+                <div class="sermon-card" data-category="Pray" data-preacher="John Due" data-title="Start A New Way Of Living">
+                    <div class="sermon-card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Start A New Way Of Living" class="sermon-card-img">
+                        <div class="sermon-date-badge">03 <span>Aug</span></div>
+                        <div class="sermon-category">Prayer</div>
+                    </div>
+                    <div class="sermon-card-content">
+                        <h3 class="sermon-card-title">Start A New Way Of Living</h3>
+                        <div class="sermon-meta-list">
+                            <div class="sermon-meta-item">
+                                <i class="fas fa-user"></i>
+                                <span>Preacher: <strong>John Due</strong></span>
+                            </div>
+                            <div class="sermon-meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Date: <strong>August 3, 2024</strong></span>
+                            </div>
+                            <div class="sermon-meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Time: <strong>7:00 AM – 11:00 AM</strong></span>
+                            </div>
+                        </div>
+                        <div class="sermon-media">
+                            <div class="audio-player" data-src="media/sermon1.mp3">
+                                <button class="audio-play-btn" aria-label="Play sermon audio">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="audio-progress-container">
+                                    <div class="audio-progress"></div>
+                                </div>
+                                <div class="audio-time">
+                                    <span class="current-time">0:00</span> / <span class="total-time">0:00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sermon Card 2 -->
+                <div class="sermon-card" data-category="Pray" data-preacher="John Due" data-title="Overcoming Life's Challenges">
+                    <div class="sermon-card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Overcoming Life's Challenges" class="sermon-card-img">
+                        <div class="sermon-date-badge">03 <span>Aug</span></div>
+                        <div class="sermon-category">Prayer</div>
+                    </div>
+                    <div class="sermon-card-content">
+                        <h3 class="sermon-card-title">Overcoming Life's Challenges</h3>
+                        <div class="sermon-meta-list">
+                            <div class="sermon-meta-item">
+                                <i class="fas fa-user"></i>
+                                <span>Preacher: <strong>John Due</strong></span>
+                            </div>
+                            <div class="sermon-meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Date: <strong>August 3, 2024</strong></span>
+                            </div>
+                            <div class="sermon-meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Time: <strong>7:00 AM – 11:00 AM</strong></span>
+                            </div>
+                        </div>
+                        <div class="sermon-media">
+                            <div class="video-player">
+                                <video controls poster="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" src="media/sermon2.mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sermon Card 3 -->
+                <div class="sermon-card" data-category="Hope" data-preacher="Sarah Lee" data-title="Hope In Times Of Trouble">
+                    <div class="sermon-card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Hope In Times Of Trouble" class="sermon-card-img">
+                        <div class="sermon-date-badge">10 <span>Aug</span></div>
+                        <div class="sermon-category">Hope</div>
+                    </div>
+                    <div class="sermon-card-content">
+                        <h3 class="sermon-card-title">Hope In Times Of Trouble</h3>
+                        <div class="sermon-meta-list">
+                            <div class="sermon-meta-item">
+                                <i class="fas fa-user"></i>
+                                <span>Preacher: <strong>Sarah Lee</strong></span>
+                            </div>
+                            <div class="sermon-meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Date: <strong>August 10, 2024</strong></span>
+                            </div>
+                            <div class="sermon-meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Time: <strong>9:00 AM – 12:00 PM</strong></span>
+                            </div>
+                        </div>
+                        <div class="sermon-media">
+                            <div class="audio-player" data-src="media/sermon3.mp3">
+                                <button class="audio-play-btn" aria-label="Play sermon audio">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="audio-progress-container">
+                                    <div class="audio-progress"></div>
+                                </div>
+                                <div class="audio-time">
+                                    <span class="current-time">0:00</span> / <span class="total-time">0:00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sermon Card 4 -->
+                <div class="sermon-card" data-category="Faith" data-preacher="Justin Davies" data-title="Walking By Faith">
+                    <div class="sermon-card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3fd8?auto=format&fit=crop&w=600&q=80" alt="Walking By Faith" class="sermon-card-img">
+                        <div class="sermon-date-badge">17 <span>Aug</span></div>
+                        <div class="sermon-category">Faith</div>
+                    </div>
+                    <div class="sermon-card-content">
+                        <h3 class="sermon-card-title">Walking By Faith</h3>
+                        <div class="sermon-meta-list">
+                            <div class="sermon-meta-item">
+                                <i class="fas fa-user"></i>
+                                <span>Preacher: <strong>Justin Davies</strong></span>
+                            </div>
+                            <div class="sermon-meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Date: <strong>August 17, 2024</strong></span>
+                            </div>
+                            <div class="sermon-meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Time: <strong>8:00 AM – 11:00 AM</strong></span>
+                            </div>
+                        </div>
+                        <div class="sermon-media">
+                            <div class="video-player">
+                                <video controls poster="https://images.unsplash.com/photo-1465101178521-c1a9136a3fd8?auto=format&fit=crop&w=600&q=80" src="media/sermon4.mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sermon Card 5 -->
+                <div class="sermon-card" data-category="Love" data-preacher="Sarah Lee" data-title="The Power Of Love">
+                    <div class="sermon-card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="The Power Of Love" class="sermon-card-img">
+                        <div class="sermon-date-badge">24 <span>Aug</span></div>
+                        <div class="sermon-category">Love</div>
+                    </div>
+                    <div class="sermon-card-content">
+                        <h3 class="sermon-card-title">The Power Of Love</h3>
+                        <div class="sermon-meta-list">
+                            <div class="sermon-meta-item">
+                                <i class="fas fa-user"></i>
+                                <span>Preacher: <strong>Sarah Lee</strong></span>
+                            </div>
+                            <div class="sermon-meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Date: <strong>August 24, 2024</strong></span>
+                            </div>
+                            <div class="sermon-meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Time: <strong>10:00 AM – 1:00 PM</strong></span>
+                            </div>
+                        </div>
+                        <div class="sermon-media">
+                            <div class="audio-player" data-src="media/sermon5.mp3">
+                                <button class="audio-play-btn" aria-label="Play sermon audio">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="audio-progress-container">
+                                    <div class="audio-progress"></div>
+                                </div>
+                                <div class="audio-time">
+                                    <span class="current-time">0:00</span> / <span class="total-time">0:00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sermon Card 6 -->
+                <div class="sermon-card" data-category="Faith" data-preacher="Justin Davies" data-title="Faith That Moves Mountains">
+                    <div class="sermon-card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Faith That Moves Mountains" class="sermon-card-img">
+                        <div class="sermon-date-badge">31 <span>Aug</span></div>
+                        <div class="sermon-category">Faith</div>
+                    </div>
+                    <div class="sermon-card-content">
+                        <h3 class="sermon-card-title">Faith That Moves Mountains</h3>
+                        <div class="sermon-meta-list">
+                            <div class="sermon-meta-item">
+                                <i class="fas fa-user"></i>
+                                <span>Preacher: <strong>Justin Davies</strong></span>
+                            </div>
+                            <div class="sermon-meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Date: <strong>August 31, 2024</strong></span>
+                            </div>
+                            <div class="sermon-meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Time: <strong>8:00 AM – 11:00 AM</strong></span>
+                            </div>
+                        </div>
+                        <div class="sermon-media">
+                            <div class="video-player">
+                                <video controls poster="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" src="media/sermon6.mp4"></video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="page-item disabled" aria-label="Previous page">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+                <a href="#" class="page-item active">1</a>
+                <a href="#" class="page-item">2</a>
+                <a href="#" class="page-item">3</a>
+                <a href="#" class="page-item">
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+  <footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- About Column -->
+        <div class="footer-column">
+          <div class="footer-logo">
+            <img src="https://placehold.co/100x100/f85c37/ffffff?text=LOGO" alt="Church Logo" class="footer-logo-img">
+            <h3 class="footer-logo-text">Church Name</h3>
+          </div>
+          <p class="footer-about-text">
+            A welcoming community of faith, hope, and love. We are dedicated to serving our community and spreading God's message of love and compassion.
+          </p>
+          <div class="footer-social">
+            <a href="#" class="social-icon-footer" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon-footer" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon-footer" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon-footer" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Sermons</a></li>
+            <li><a href="#">Ministries</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Service Times Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Service Times</h3>
+          <ul class="footer-service-times">
+            <li>
+              <span class="service-day">Sunday:</span>
+              <span class="service-time">10:00 AM - 12:00 PM</span>
+            </li>
+            <li>
+              <span class="service-day">Wednesday:</span>
+              <span class="service-time">7:00 PM - 8:30 PM</span>
+            </li>
+            <li>
+              <span class="service-day">Friday:</span>
+              <span class="service-time">7:00 PM - 9:00 PM (Youth)</span>
+            </li>
+          </ul>
+          <div class="footer-contact-info">
+            <h3 class="footer-heading">Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Faith Street, City, State 12345</p>
+            <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+            <p><i class="fas fa-envelope"></i> info@churchname.org</p>
+          </div>
+        </div>
+
+        <!-- Newsletter Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Stay Connected</h3>
+          <p class="newsletter-text">Subscribe to our newsletter to receive updates on events, sermons, and community outreach.</p>
+          <form class="newsletter-form">
+            <div class="form-group">
+              <input type="text" class="newsletter-input" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+              <input type="email" class="newsletter-input" placeholder="Your Email">
+            </div>
+            <button type="submit" class="newsletter-button">
+              Subscribe <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="copyright">© 2025 Church Name. All Rights Reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      <script src="script.js"></script>
+
+  
+</body>
+</html>

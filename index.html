@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | TDHC</title>
+      <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+    <!-- Full-page background image -->
+  <div class="page-background"></div>
+
+  <!-- Transparent Navbar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="/TDHC-removebg.png" alt="Logo" class="logo-img">
+      <div class="logo-text">The Divine Healer's Church - NJ Branch</div>
+    </div>
+    
+    <ul class="nav-menu">
+      <li><a href="#" class="nav-link active">Home</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="ministries.html" class="nav-link">Ministries</a></li>
+      <li><a href="event.html" class="nav-link">Events</a></li>
+      <li><a href="sermon.html" class="nav-link">Sermons</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    
+    
+    <button class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <button class="mobile-menu-close">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="mobile-menu-links">
+      <a href="#" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="ministries.html">Ministries</a>
+      <a href="event.html">Events</a>
+      <a href="sermon.html">Sermons</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="overlay"></div>
+
+  <!-- Hero Section with Image Slider -->
+  <section class="hero">
+    <div class="hero-slider">
+      <div class="slide active" style="background-image: url('/images/IMG-20250214-WA0004.jpg')"></div>
+      <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1507692049790-de58290a4334?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80')"></div>
+      <div class="slide" style="background-image: url('/images/background4.jpg')"></div>
+      <div class="slide" style="background-image: url('/images/background1.jpg')"></div>
+    </div>
+    
+    <div class="hero-content">
+      <p class="hero-subtitle">Welcome to The Divine Healer's Church</p>
+      <h1 class="hero-title">A Place of Faith, Hope, and Love</h1>
+      <p class="hero-description">Join our community as we grow together in faith and service. We welcome everyone to experience the love and grace that guides our journey.</p>
+      <a href="#" class="hero-btn">Join Us This Sunday</a>
+    </div>
+    
+    <div class="slider-controls">
+      <div class="slider-dot active" data-index="0"></div>
+      <div class="slider-dot" data-index="1"></div>
+      <div class="slider-dot" data-index="2"></div>
+      <div class="slider-dot" data-index="3"></div>
+    </div>
+    
+    <div class="slider-arrows">
+      <div class="slider-arrow prev">
+        <i class="fas fa-chevron-left"></i>
+      </div>
+      <div class="slider-arrow next">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+    </div>
+  </section>
+
+   <section class="welcome-section">
+      <div class="welcome-container">
+        <div class="welcome-image-col">
+          <div class="welcome-image-bg"></div>
+          <img
+            src="images/IMG-20250214-WA0004.jpg"
+            alt="Welcome"
+            class="welcome-image"
+          />
+        </div>
+        <div class="welcome-content-col">
+          <h2 class="welcome-title">Welcome</h2>
+          <h3 class="welcome-subtitle">
+            Welcome to The Divine Healer's Church (TDHC)!
+          </h3>
+          <p class="welcome-body">
+            At TDHC, we are a Christ-centered, family-focused, non-profit Christian community committed to sharing the life-changing message of the gospel. Our mission is twofold: to faithfully preach and teach the Word of God as revealed in the Holy Bible, and to extend the love of Jesus Christ to our local community and the world.
+          </p>
+          <p class="welcome-body">
+            Whether you’re just beginning your spiritual journey or seeking a deeper relationship with God, our prayer is to meet you right where you are—with no rules and no judgments. We trust that God will use us to be a vessel of encouragement, hope, and transformation in your life and the lives of those you love.
+
+          </p>
+          <p class="welcome-body">We’re glad you’re here—welcome home.</p>
+          <a href="about.html" class="welcome-btn"
+            ><span class="welcome-btn-icon"></span> Who we are</a
+          >
+        </div>
+      </div>
+    </section> 
+
+    <!-- Weekly Schedule Section -->
+  <section class="weekly-schedule-section">
+  <div class="container">
+    <div class="schedule-grid">
+      <!-- Left Content -->
+      <div class="schedule-content" data-aos="fade-right">
+        <div class="section-badge">This Week</div>
+        <h2 class="section-title">Weekly Schedule</h2>
+        <p class="section-description">
+          Discover key weekly events designed to help you grow in faith and community.
+          Stay spiritually connected and engaged throughout the week.
+        </p>
+        <a href="#full-schedule" class="primary-button">
+          <span>View Full Schedule</span>
+          <i class="fas fa-calendar-alt"></i>
+        </a>
+      </div>
+
+      <!-- Right "Staggered Phone" Cards -->
+      <div class="cards-container">
+        <!-- Main large card (right) -->
+        <div class="schedule-card card-main" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-tag">
+            <i class="fas fa-church"></i>
+            <span>Sunday</span>
+          </div>
+          <div class="card-image-container">
+            <img
+              src="https://images.unsplash.com/photo-1438032005730-c779502df39b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+              alt="Worship"
+              class="card-image"
+            />
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Worship Service</h3>
+            <div class="card-time">
+              <i class="far fa-clock"></i>
+              <span>10:00 AM</span>
+            </div>
+            <p class="card-text">
+              Join us every Sunday for a time of worship, prayer, and a message from the Word.
+            </p>
+          </div>
+        </div>
+
+        <!-- Medium card (left top) -->
+        <div class="schedule-card card-medium" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-tag">
+            <i class="fas fa-book-open"></i>
+            <span>Saturday</span>
+          </div>
+          <div class="card-image-container">
+            <img
+              src="https://images.unsplash.com/photo-1507692049790-de58290a4334?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+              alt="Bible Study"
+              class="card-image"
+            />
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Bible Study</h3>
+            <div class="card-time">
+              <i class="far fa-clock"></i>
+              <span>6:30 PM</span>
+            </div>
+            <p class="card-text">
+              Dive deeper into scripture with us every Saturday in a small group setting.
+            </p>
+           <a href="#" class="card-button" id="openBibleStudyModalBtn">
+  <span>Request to Join</span>
+  <i class="fas fa-arrow-right"></i>
+</a>
+          </div>
+        </div>
+
+        <!-- Small card (bottom right) -->
+        <div class="schedule-card card-small" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-tag">
+            <i class="fas fa-users"></i>
+            <span>Friday</span>
+          </div>
+          <div class="card-image-container">
+            <img
+              src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+              alt="Youth Night"
+              class="card-image"
+            />
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Youth Night</h3>
+            <div class="card-time">
+              <i class="far fa-clock"></i>
+              <span>7:00 PM</span>
+            </div>
+            <p class="card-text">
+              A vibrant space for teens and young adults to grow, connect, and have fun.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+   <section class="sunday-highlight-modern">
+        <div class="sunday-highlight-container">
+          <div class="sunday-highlight-content">
+            <span class="sunday-label">JOIN US THIS SUNDAY</span>
+            <h2 class="sunday-title">
+              Sundays are the best day of the week!<br />Let's spend them
+              together.
+            </h2>
+            <p class="sunday-desc">
+              Experience uplifting worship, inspiring messages, and a welcoming
+              community. Everyone is welcome—bring your family and friends!
+            </p>
+            <a href="#" class="sunday-btn-modern">
+              <span
+                class="material-icons"
+                aria-hidden="true"
+                style="vertical-align: middle; font-size: 1.2em"
+                ></span
+              >
+              <span>Find times and locations</span>
+            </a>
+          </div>
+          <div class="sunday-highlight-images">
+            <img
+              src="/images/image4_files/29a7303a-faee-411b-977b-ec001f077393.jpeg"
+              alt="People hugging at church"
+              class="sunday-img-modern img1"
+            />
+            <img
+              src="/images/image5_files/f2c1985e-f412-4746-89b3-38db5fd2ed8b.jpeg"
+              alt="Church building"
+              class="sunday-img-modern img2"
+            />
+          </div>
+        </div>
+      </section>
+
+          <!-- EVENTS SECTION WITH BACKGROUND IMAGE -->
+  <section class="events-section">
+  <div class="events-bg-image"></div>
+  <div class="events-bg-overlay"></div>
+  <div class="container">
+    <div class="events-content">
+      <!-- Tabs Header -->
+      <div class="events-header">
+        <div class="events-tabs">
+          <button class="events-tab active" data-tab="events">EVENTS</button>
+          <button class="events-tab" data-tab="news">NEWS</button>
+        </div>
+      </div>
+      
+      <!-- Events Tab Content -->
+      <div class="tab-content active" id="events-content">
+        <div class="events-cards">
+          <!-- Event Card 1 -->
+          <div class="event-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="event-image-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=400&q=80"
+                alt="Gospel Night"
+                class="event-image"
+              />
+              <div class="event-date">
+                <span class="event-day">2</span>
+                <span class="event-month">May</span>
+              </div>
+            </div>
+            <div class="event-content">
+              <h3 class="event-title">Annual Gospel Night</h3>
+              <p class="event-desc">
+                An evening of soulful music and fellowship. Celebrate with voices
+                lifting in unison.
+              </p>
+              <a href="#" class="event-link">View Event <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Event Card 2 -->
+          <div class="event-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="event-image-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+                alt="Picnic Sunday"
+                class="event-image"
+              />
+              <div class="event-date">
+                <span class="event-day">2</span>
+                <span class="event-month">Nov</span>
+              </div>
+            </div>
+            <div class="event-content">
+              <h3 class="event-title">Family Picnic Sunday</h3>
+              <p class="event-desc">
+                Bring your loved ones for a day of fun, food, and community
+                bonding at our church grounds.
+              </p>
+              <a href="#" class="event-link">View Event <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- Event Card 3 -->
+          <div class="event-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="event-image-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+                alt="Charity Bake Sale"
+                class="event-image"
+              />
+              <div class="event-date">
+                <span class="event-day">8</span>
+                <span class="event-month">Dec</span>
+              </div>
+            </div>
+            <div class="event-content">
+              <h3 class="event-title">Charity Bake Sale</h3>
+              <p class="event-desc">
+                Indulge in delightful treats for a cause. All proceeds go to our
+                outreach programs.
+              </p>
+              <a href="#" class="event-link">View Event <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="events-footer">
+          <a href="event.html" class="events-btn">Browse All Events</a>
+        </div>
+      </div>
+      
+      <!-- News Tab Content -->
+      <div class="tab-content" id="news-content">
+        <div class="events-cards">
+          <!-- News Card 1 -->
+          <div class="event-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="event-image-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1465101178521-c1a9136a3fd8?auto=format&fit=crop&w=400&q=80"
+                alt="Community Outreach"
+                class="event-image"
+              />
+              <div class="news-badge">Latest</div>
+            </div>
+            <div class="event-content">
+              <h3 class="event-title">Community Outreach Success</h3>
+              <p class="event-desc">
+                Our recent outreach program helped over 100 families in need.
+                Thank you for your support!
+              </p>
+              <a href="#" class="event-link">Read News <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- News Card 2 -->
+          <div class="event-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="event-image-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+                alt="New Ministry"
+                class="event-image"
+              />
+            </div>
+            <div class="event-content">
+              <h3 class="event-title">New Ministry Launched</h3>
+              <p class="event-desc">
+                We are excited to announce the launch of our new youth ministry.
+                Join us for the kickoff event!
+              </p>
+              <a href="#" class="event-link">Read News <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          
+          <!-- News Card 3 -->
+          <div class="event-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="event-image-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
+                alt="Holiday Drive"
+                class="event-image"
+              />
+            </div>
+            <div class="event-content">
+              <h3 class="event-title">Holiday Drive Results</h3>
+              <p class="event-desc">
+                Thanks to your generosity, our holiday drive collected over 500
+                gifts for local children.
+              </p>
+              <a href="#" class="event-link">Read News <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="events-footer">
+          <a href="event.html " class="events-btn">Browse All News</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Main gallery section with sticky behavior -->
+  <div class="gallery-section-wrapper">
+    <section class="gallery-section">
+      <div class="gallery-container">
+        <div class="gallery-header">
+          <h2 class="gallery-title">Gallery</h2>
+          <p class="gallery-description">Explore our collection of beautiful moments and memories from our community events and gatherings.</p>
+        </div>
+
+        <div class="gallery-track-container">
+          <div class="gallery-track">
+            <!-- Card 1 -->
+            <div class="gallery-card" data-index="0">
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Gallery 1">
+              <div class="gallery-card-overlay">
+                <h3 class="gallery-card-title">Mountain Retreat</h3>
+                <p class="gallery-card-description">Our annual mountain retreat where we connect with nature and each other.</p>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="gallery-card" data-index="1">
+              <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80" alt="Gallery 2">
+              <div class="gallery-card-overlay">
+                <h3 class="gallery-card-title">Lakeside Gathering</h3>
+                <p class="gallery-card-description">A peaceful moment by the lake during our summer gathering.</p>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="gallery-card" data-index="2">
+              <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80" alt="Gallery 3">
+              <div class="gallery-card-overlay">
+                <h3 class="gallery-card-title">Community Garden</h3>
+                <p class="gallery-card-description">Working together to grow food and relationships in our community garden.</p>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="gallery-card" data-index="3">
+              <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3fd8?auto=format&fit=crop&w=800&q=80" alt="Gallery 4">
+              <div class="gallery-card-overlay">
+                <h3 class="gallery-card-title">Sunset Service</h3>
+                <p class="gallery-card-description">Our special outdoor sunset service held every summer.</p>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="gallery-card" data-index="4">
+              <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80" alt="Gallery 5">
+              <div class="gallery-card-overlay">
+                <h3 class="gallery-card-title">Forest Meditation</h3>
+                <p class="gallery-card-description">Finding peace and connection in the quiet of the forest.</p>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="gallery-card" data-index="5">
+              <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=800&q=80" alt="Gallery 6">
+              <div class="gallery-card-overlay">
+                <h3 class="gallery-card-title">Autumn Reflection</h3>
+                <p class="gallery-card-description">The beauty of fall colors reminds us of life's seasons.</p>
+              </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="gallery-card" data-index="6">
+              <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80" alt="Gallery 7">
+              <div class="gallery-card-overlay">
+                <h3 class="gallery-card-title">Coastal Retreat</h3>
+                <p class="gallery-card-description">Our youth group enjoying time by the ocean during our annual retreat.</p>
+              </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="gallery-card" data-index="7">
+              <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=800&q=80" alt="Gallery 8">
+              <div class="gallery-card-overlay">
+                <h3 class="gallery-card-title">Starry Night</h3>
+                <p class="gallery-card-description">Contemplating the wonders of creation under a starry sky.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-progress">
+          <div class="gallery-progress-bar"></div>
+        </div>
+
+        <div class="gallery-footer">
+          <p class="gallery-bible-placeholder">
+            "For we are God's masterpiece. He has created us anew in Christ Jesus, so we can do the good things he planned for us long ago." — Ephesians 2:10
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+    <!-- Modal for Bible Study Form -->
+  <div
+  class="bible-study-modal"
+  id="bibleStudyModalWindow"
+  aria-modal="true"
+  role="dialog"
+  tabindex="-1"
+  aria-labelledby="bibleStudyModalTitle"
+  style="display: none"
+>
+      <div class="bible-study-modal-overlay"></div>
+      <div class="bible-study-modal-content" role="document">
+        <button class="bible-study-modal-close" aria-label="Close form">
+          &times;
+        </button>
+        <h2
+          id="bibleStudyModalTitle"
+          class="bible-study-title"
+          style="margin-top: 0"
+        >
+          Request to Join Bible Study
+        </h2>
+        <div class="bible-study-meta">
+          <div>
+            <span class="material-icons" aria-hidden="true">schedule</span>
+            Saturdays at 12:00 to 15:00 AM EDT (New Jersey)
+          </div>
+          <div>
+            <span class="material-icons" aria-hidden="true">place</span> The Divine Healer's Church – Online 
+          </div>
+        </div>
+        <form class="bible-study-form">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea
+            placeholder="Anything you'd like to share? (Optional)"
+            rows="3"
+          ></textarea>
+          <button type="submit">
+            <span
+              class="material-icons"
+              aria-hidden="true"
+              style="vertical-align: middle; font-size: 1.1em"
+              >send</span
+            >
+            Request to Join
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <footer class="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- About Column -->
+        <div class="footer-column">
+          <div class="footer-logo">
+            <img src="/TDHC-removebg.png" alt="Church Logo" class="footer-logo-img">
+            <h3 class="footer-logo-text">The Divine Healer's Church</h3>
+          </div>
+          <p class="footer-about-text">
+            A welcoming community of faith, hope, and love. We are dedicated to serving our community and spreading God's message of love and compassion.
+          </p>
+          <div class="footer-social">
+            <a href="#" class="social-icon-footer" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon-footer" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon-footer" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon-footer" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="event.html">Events</a></li>
+            <li><a href="sermon.html">Sermons</a></li>
+            <li><a href="ministries.html">Ministries</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Service Times Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Service Times</h3>
+          <ul class="footer-service-times">
+            <li>
+              <span class="service-day">Sunday:</span>
+              <span class="service-time">10:00 AM - 12:00 PM</span>
+            </li>
+            <li>
+              <span class="service-day">Wednesday:</span>
+              <span class="service-time">7:00 PM - 8:30 PM</span>
+            </li>
+            <li>
+              <span class="service-day">Friday:</span>
+              <span class="service-time">7:00 PM - 9:00 PM (Youth)</span>
+            </li>
+          </ul>
+          <div class="footer-contact-info">
+            <h3 class="footer-heading">Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Faith Street, City, State 12345</p>
+            <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+            <p><i class="fas fa-envelope"></i> info@churchname.org</p>
+          </div>
+        </div>
+
+        <!-- Newsletter Column -->
+        <div class="footer-column">
+          <h3 class="footer-heading">Stay Connected</h3>
+          <p class="newsletter-text">Subscribe to our newsletter to receive updates on events, sermons, and community outreach.</p>
+          <form class="newsletter-form">
+            <div class="form-group">
+              <input type="text" class="newsletter-input" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+              <input type="email" class="newsletter-input" placeholder="Your Email">
+            </div>
+            <button type="submit" class="newsletter-button">
+              Subscribe <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p class="copyright">© 2025 The Divine Healer'S Church . All Rights Reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+ <script src="script.js"></script>
+</body>
+</html>
