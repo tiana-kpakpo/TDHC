@@ -347,7 +347,6 @@
       margin: 0 auto;
       text-align: center;
       font-size: 18px;
-      color: #666;
       line-height: 1.8;
     }
 
@@ -596,7 +595,6 @@
   /* Modern Weekly Schedule Section */
   .weekly-schedule-section {
     padding: 100px 0;
-    /* background-color: #f8f9fa; */
     position: relative;
     overflow: hidden;
   }
@@ -634,8 +632,8 @@
   }
 
   .schedule-grid {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    /* grid-template-columns: 1fr; */
     gap: 60px;
   }
 
@@ -673,9 +671,9 @@
   }
 
   .section-description {
-    font-size: 17px;
+    font-size: 20px;
     line-height: 1.7;
-    color: #6b7280;
+    color: white;
     margin-bottom: 30px;
   }
 
@@ -702,7 +700,7 @@
   /* Cards Container */
   .cards-container {
     position: relative;
-    height: 650px;
+    /* height: 650px; */
   }
 
   @media (max-width: 991px) {
@@ -822,23 +820,21 @@
   }
 
   /* Card Positioning */
-  .card-main {
-    top: 0;
-    right: 0;
-    z-index: 30;
-  }
 
-  .card-medium {
-    top: 80px;
-    right: 450px;
-    z-index: 20;
-  }
+  .card-main,
+.card-medium,
+.card-small {
+  position: static; 
+  z-index: auto;
+}
 
-  .card-small {
-    top: 320px;
-    right: 150px;
-    z-index: 20;
-  }
+  .cards-container {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap; 
+  margin-top: 2rem;
+}
 
   /* Animation classes for AOS library (optional) */
   [data-aos="fade-right"] {
@@ -978,22 +974,20 @@
 }
 
 .sunday-highlight-images {
-  flex: 1 1 320px;
+
   min-width: 260px;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   align-items: flex-end;
-  position: relative;
 }
 
 .sunday-img-modern {
-  width: 260px;
+  width: fit-content;
   height: 340px;
   object-fit: cover;
   border-radius: 1.5rem;
   box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-  background: #fff;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .sunday-img-modern.img1 {
@@ -1001,11 +995,6 @@
   z-index: 2;
   margin-right: 2.5rem;
   margin-bottom: -2rem;
-}
-.sunday-img-modern.img2 {
-  position: relative;
-  z-index: 1;
-  margin-top: 0;
 }
 
 .sunday-img-modern:hover {
@@ -1459,7 +1448,7 @@
   }
   
   /* Animation classes for AOS library (optional) */
-  [data-aos="fade-up"] {
+  /* [data-aos="fade-up"] {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s ease, transform 0.6s ease;
@@ -1468,7 +1457,7 @@
   [data-aos="fade-up"].aos-animate {
     opacity: 1;
     transform: translateY(0);
-  }
+  } */
 
 
     /* Main gallery section */
@@ -2047,5 +2036,82 @@
       }
     }
 
+
+    
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            background-color: var(--white);
+            z-index: 1000;
+            padding: 24px;
+            transition: right 0.3s ease;
+            box-shadow: var(--shadow-xl);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .mobile-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--gray-700);
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mobile-nav-link {
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            color: var(--gray-700);
+            transition: all 0.2s ease;
+        }
+
+        .mobile-nav-link:hover, .mobile-nav-link.active {
+            background-color: var(--gray-100);
+            color: var(--primary);
+        }
+
+        .mobile-nav-link.active {
+            font-weight: 600;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
 
  

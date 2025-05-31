@@ -774,131 +774,6 @@
             line-height: 1.6;
         }
 
-        /* Testimonials Section */
-        .testimonials-section {
-            background-color: var(--gray-900);
-            color: var(--white);
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonials-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
-            opacity: 0.3;
-            z-index: 0;
-        }
-
-        .testimonials-container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonials-header {
-            text-align: center;
-            margin-bottom: 64px;
-        }
-
-        .testimonials-badge {
-            display: inline-block;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--white);
-            font-size: 14px;
-            font-weight: 600;
-            padding: 6px 12px;
-            border-radius: var(--radius-full);
-            margin-bottom: 16px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .testimonials-title {
-            font-size: 36px;
-            font-weight: 800;
-            margin-bottom: 16px;
-            line-height: 1.2;
-        }
-
-        .testimonials-subtitle {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.7);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 32px;
-        }
-
-        .testimonial-card {
-            background-color: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: var(--radius-xl);
-            padding: 32px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-8px);
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .testimonial-quote {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 24px;
-            line-height: 1.6;
-            position: relative;
-        }
-
-        .testimonial-quote::before {
-            content: '"';
-            font-size: 64px;
-            color: var(--primary-light);
-            position: absolute;
-            top: -20px;
-            left: -10px;
-            opacity: 0.5;
-            font-family: serif;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .testimonial-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .testimonial-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .testimonial-name {
-            font-weight: 600;
-            color: var(--white);
-        }
-
-        .testimonial-role {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
         /* Call to Action */
         .cta-section {
             padding: 80px 0;
@@ -1663,42 +1538,6 @@
             </div>
         </section>
 
-        <!-- Stats Section -->
-        <section class="stats-section">
-            <div class="container">
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-icon">
-                            <i class="fas fa-church"></i>
-                        </div>
-                        <div class="stat-number">40</div>
-                        <div class="stat-label">Years of Ministry</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="stat-number">2,500+</div>
-                        <div class="stat-label">Church Members</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon">
-                            <i class="fas fa-hands-helping"></i>
-                        </div>
-                        <div class="stat-number">15,000+</div>
-                        <div class="stat-label">People Served</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon">
-                            <i class="fas fa-globe-americas"></i>
-                        </div>
-                        <div class="stat-number">12</div>
-                        <div class="stat-label">Countries Reached</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Leaders Section -->
         <section class="section leaders-section">
             <div class="container">
@@ -1887,55 +1726,7 @@
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <section class="testimonials-section">
-            <div class="testimonials-pattern"></div>
-            <div class="container testimonials-container">
-                <div class="testimonials-header">
-                    <div class="testimonials-badge">TESTIMONIALS</div>
-                    <h2 class="testimonials-title">Lives Changed in Our Community</h2>
-                    <p class="testimonials-subtitle">Hear from those who have found hope, healing, and community at The Divine Healer's Church</p>
-                </div>
-                
-                <div class="testimonials-grid">
-                    <!-- Testimonial 1 -->
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">Finding The Divine Healer's Church was a turning point in my life. The community welcomed me with open arms during a difficult time, and I've grown so much in my faith journey here.</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson" class="testimonial-avatar">
-                            <div class="testimonial-info">
-                                <div class="testimonial-name">Sarah Johnson</div>
-                                <div class="testimonial-role">Member since 2018</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 2 -->
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">The youth program has been incredible for my teenagers. They've found mentors who truly care about them and a safe place to explore their faith and ask tough questions.</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Thompson" class="testimonial-avatar">
-                            <div class="testimonial-info">
-                                <div class="testimonial-name">Michael Thompson</div>
-                                <div class="testimonial-role">Parent</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Testimonial 3 -->
-                    <div class="testimonial-card">
-                        <p class="testimonial-quote">Serving in the Outreach Ministry has opened my eyes to the needs in our community and given me the opportunity to be the hands and feet of Jesus in practical ways.</p>
-                        <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Rebecca Martinez" class="testimonial-avatar">
-                            <div class="testimonial-info">
-                                <div class="testimonial-name">Rebecca Martinez</div>
-                                <div class="testimonial-role">Volunteer</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    
 
         <!-- Call to Action -->
         <section class="cta-section">
@@ -1944,11 +1735,11 @@
                 <h2 class="cta-title">Join Our Community</h2>
                 <p class="cta-desc">Whether you're exploring faith for the first time or looking for a church home, we'd love to welcome you to The Divine Healer's Church.</p>
                 <div class="cta-buttons">
-                    <a href="#" class="cta-btn-primary">
+                    <a href="contact.html#map" class="cta-btn-primary">
                         <i class="fas fa-map-marker-alt"></i>
                         Visit Us
                     </a>
-                    <a href="#" class="cta-btn-secondary">
+                    <a href="contact.html" class="cta-btn-secondary">
                         <i class="fas fa-envelope"></i>
                         Contact Us
                     </a>

@@ -7,6 +7,7 @@
       <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  
 </head>
 <body>
     <!-- Full-page background image -->
@@ -30,7 +31,7 @@
     
     
     <button class="mobile-menu-btn">
-      <i class="fas fa-bars"></i>
+      <!-- <i class="fas fa-bars"></i> -->
     </button>
   </nav>
 
@@ -39,16 +40,35 @@
     <button class="mobile-menu-close">
       <i class="fas fa-times"></i>
     </button>
-    <div class="mobile-menu-links">
+    <!-- <div class="mobile-menu-links">
       <a href="#" class="active">Home</a>
       <a href="about.html">About</a>
       <a href="ministries.html">Ministries</a>
       <a href="event.html">Events</a>
       <a href="sermon.html">Sermons</a>
       <a href="contact.html">Contact</a>
-    </div>
+    </div> -->
   </div>
-  <div class="overlay"></div>
+  <!-- <div class="overlay"></div> -->
+
+  <!-- Mobile Menu -->
+    <div class="overlay" id="overlay"></div>
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <img src="TDHC-removebg.png" alt="The Divine Healer's Church Logo" class="logo" style="height: 32px;">
+            <button class="mobile-close" aria-label="Close mobile menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-nav">
+            <a href="index.html" class="mobile-nav-link active">Home</a>
+            <a href="about.html" class="mobile-nav-link ">About</a>
+            <a href="ministries.html" class="mobile-nav-link">Ministries</a>
+            <a href="sermon.html" class="mobile-nav-link">Sermons</a>
+            <a href="event.html" class="mobile-nav-link">Events</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+        </div>
+    </div>
 
   <!-- Hero Section with Image Slider -->
   <section class="hero">
@@ -243,11 +263,6 @@
               src="/images/image4_files/29a7303a-faee-411b-977b-ec001f077393.jpeg"
               alt="People hugging at church"
               class="sunday-img-modern img1"
-            />
-            <img
-              src="/images/image5_files/f2c1985e-f412-4746-89b3-38db5fd2ed8b.jpeg"
-              alt="Church building"
-              class="sunday-img-modern img2"
             />
           </div>
         </div>

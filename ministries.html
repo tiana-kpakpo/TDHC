@@ -579,85 +579,6 @@
       box-shadow: var(--shadow-md);
     }
 
-    /* Testimonials Section */
-    .testimonials-section {
-      padding: 80px 0;
-      background-color: var(--white);
-    }
-
-    .testimonials-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 32px;
-      margin-top: 48px;
-    }
-
-    .testimonial-card {
-      background-color: var(--gray-50);
-      border-radius: var(--radius-xl);
-      padding: 32px;
-      box-shadow: var(--shadow-md);
-      transition: all 0.3s ease;
-    }
-
-    .testimonial-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .testimonial-quote {
-      font-size: 18px;
-      color: var(--gray-700);
-      margin-bottom: 24px;
-      line-height: 1.6;
-      position: relative;
-    }
-
-    .testimonial-quote::before {
-      content: '"';
-      font-size: 64px;
-      color: var(--primary-100);
-      position: absolute;
-      top: -20px;
-      left: -10px;
-      opacity: 0.5;
-      font-family: serif;
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .testimonial-avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .testimonial-info {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .testimonial-name {
-      font-weight: 600;
-      color: var(--gray-900);
-    }
-
-    .testimonial-role {
-      font-size: 14px;
-      color: var(--gray-600);
-    }
-
     /* Footer */
     .footer {
       background-color: var(--gray-900);
@@ -888,9 +809,6 @@
         align-items: stretch;
       }
       
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-      }
     }
 
     @media (max-width: 576px) {
@@ -1207,55 +1125,6 @@
               Learn More
               <i class="fas fa-arrow-right"></i>
             </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section class="testimonials-section">
-    <div class="testimonials-container">
-      <div class="section-header">
-        <div class="section-badge">TESTIMONIALS</div>
-        <h2 class="section-title">Lives Changed Through Ministry</h2>
-        <p class="section-subtitle">Hear from those who have found community and purpose through our ministries</p>
-      </div>
-      
-      <div class="testimonials-grid">
-        <!-- Testimonial 1 -->
-        <div class="testimonial-card">
-          <p class="testimonial-quote">Joining the Women's Ministry has been transformative for me. I've found a supportive community of sisters in Christ who encourage me in my faith journey.</p>
-          <div class="testimonial-author">
-            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson" class="testimonial-avatar">
-            <div class="testimonial-info">
-              <div class="testimonial-name">Sarah Johnson</div>
-              <div class="testimonial-role">Women's Ministry</div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Testimonial 2 -->
-        <div class="testimonial-card">
-          <p class="testimonial-quote">The Youth Ministry has given my teenagers a place to belong and grow in their faith. The mentors are incredible role models who truly care.</p>
-          <div class="testimonial-author">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Thompson" class="testimonial-avatar">
-            <div class="testimonial-info">
-              <div class="testimonial-name">Michael Thompson</div>
-              <div class="testimonial-role">Parent</div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Testimonial 3 -->
-        <div class="testimonial-card">
-          <p class="testimonial-quote">Serving in the Outreach Ministry has opened my eyes to the needs in our community and given me the opportunity to be the hands and feet of Jesus.</p>
-          <div class="testimonial-author">
-            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Rebecca Martinez" class="testimonial-avatar">
-            <div class="testimonial-info">
-              <div class="testimonial-name">Rebecca Martinez</div>
-              <div class="testimonial-role">Outreach Volunteer</div>
-            </div>
           </div>
         </div>
       </div>
